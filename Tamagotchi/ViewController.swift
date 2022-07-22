@@ -1,9 +1,23 @@
 
 
 import UIKit
+import TextFieldEffects
 
 class ViewController: UIViewController {
     static let mainIdentifier = "ViewController"
+    
+    @IBOutlet weak var storyLabel: UILabel!
+    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var mainNameBackground: UIView!
+    @IBOutlet weak var mainName: UILabel!
+    
+    @IBOutlet weak var mainLevel: UILabel!
+    @IBOutlet weak var mainRice: UILabel!
+    @IBOutlet weak var mainWater: UILabel!
+    
+    @IBOutlet weak var riceTextField: TextFieldEffects!
+    @IBOutlet weak var waterTextField: TextFieldEffects!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +30,10 @@ class ViewController: UIViewController {
         navigationItem.backButtonTitle = " "
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(nextButton))
+        
+        
+        
+        
     }
     
     // action - setting으로 push

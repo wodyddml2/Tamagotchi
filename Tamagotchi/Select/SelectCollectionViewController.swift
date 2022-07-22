@@ -1,6 +1,6 @@
 
 import UIKit
-
+import Toast
 
 
 class SelectCollectionViewController: UICollectionViewController {

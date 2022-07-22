@@ -26,6 +26,8 @@
 		63641ADF288ABBC800E995F1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */; };
 		63641AE1288ABBDE00E995F1 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */; };
 		63641AE3288ABC6600E995F1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE2288ABC6600E995F1 /* UIView+Extension.swift */; };
+		63E573A3288AF2D200EB1905 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 63E573A2288AF2D200EB1905 /* TextFieldEffects */; };
+		63E573A6288AF2E100EB1905 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 63E573A5288AF2E100EB1905 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E573A6288AF2E100EB1905 /* Toast in Frameworks */,
+				63E573A3288AF2D200EB1905 /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +158,10 @@
 			dependencies = (
 			);
 			name = Tamagotchi;
+			packageProductDependencies = (
+				63E573A2288AF2D200EB1905 /* TextFieldEffects */,
+				63E573A5288AF2E100EB1905 /* Toast */,
+			);
 			productName = Tamagotchi;
 			productReference = 63641AAB288A7B1500E995F1 /* Tamagotchi.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +190,10 @@
 				Base,
 			);
 			mainGroup = 63641AA2288A7B1500E995F1;
+			packageReferences = (
+				63E573A1288AF2D200EB1905 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+				63E573A4288AF2E100EB1905 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 63641AAC288A7B1500E995F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -446,6 +458,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63E573A1288AF2D200EB1905 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		63E573A4288AF2E100EB1905 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63E573A2288AF2D200EB1905 /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63E573A1288AF2D200EB1905 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
+		63E573A5288AF2E100EB1905 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63E573A4288AF2E100EB1905 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 63641AA3288A7B1500E995F1 /* Project object */;
 }
