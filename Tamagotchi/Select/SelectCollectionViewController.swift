@@ -4,6 +4,8 @@ import UIKit
 
 
 class SelectCollectionViewController: UICollectionViewController {
+    
+    static let selectIndentifier = "SelectCollectionViewController"
 
     @IBOutlet weak var selectPageBackground: UIView!
     
@@ -59,7 +61,7 @@ class SelectCollectionViewController: UICollectionViewController {
     // 선택 시 PopUp창으로 이동
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let popSB = UIStoryboard(name: "PopUp", bundle: nil)
-        guard let popVC = popSB.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else {
+        guard let popVC = popSB.instantiateViewController(withIdentifier: PopUpViewController.popIdentifier) as? PopUpViewController else {
             return
         }
         popVC.modalPresentationStyle = .overFullScreen
@@ -69,11 +71,6 @@ class SelectCollectionViewController: UICollectionViewController {
         } else {
             print("")
         }
-        
-        
-        
-        
-        
         
     }
     

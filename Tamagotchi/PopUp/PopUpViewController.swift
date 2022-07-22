@@ -2,6 +2,9 @@
 import UIKit
 
 class PopUpViewController: UIViewController {
+    
+    static let popIdentifier = "PopUpViewController"
+    
     var selectChangeData: SelectChange?
     
     @IBOutlet weak var popupBackground: UIView!
@@ -34,6 +37,7 @@ class PopUpViewController: UIViewController {
       
         // popup 배경 색 지정
         popupBackground.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        
         // popup 배경 둥글게
         popupBackground.layer.masksToBounds = true
         popupBackground.layer.cornerRadius = 5
@@ -69,6 +73,16 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func okButtonClicked(_ sender: UIButton) {
+        let SB = UIStoryboard(name: "Main", bundle: nil)
+        guard let VC = SB.instantiateViewController(withIdentifier: ViewController.mainIdentifier) as? ViewController else {
+            return
+        }
+        
+        let Nav = UINavigationController(rootViewController: VC)
+        
+        Nav.modalPresentationStyle = .fullScreen
+        present(Nav, animated: true)
+        
     }
     
 
