@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rbK-GB-1dH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Collection View Controller-->
+        <scene sceneID="KrM-TI-5Wx">
+            <objects>
+                <collectionViewController id="YrO-9c-QK8" customClass="SelectCollectionViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="o67-D0-H4d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VG9-j5-GTd">
+                            <size key="itemSize" width="154" height="167"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <view key="backgroundView" contentMode="scaleToFill" id="S3G-wp-A5M">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </view>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SelectCollectionViewCell" id="hHa-gB-INL" customClass="SelectCollectionViewCell" customModule="Tamagotchi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="154" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TNd-w9-u9b">
+                                    <rect key="frame" x="0.0" y="0.0" width="154" height="167"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-1" translatesAutoresizingMaskIntoConstraints="NO" id="m3e-3J-YRg">
+                                            <rect key="frame" x="17.5" y="0.0" width="119" height="118.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="m3e-3J-YRg" secondAttribute="height" id="jdV-og-Ol8"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQB-4j-4NL">
+                                            <rect key="frame" x="54" y="122.5" width="46" height="33.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56C-4l-PZL">
+                                                    <rect key="frame" x="2" y="7.5" width="42" height="18.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="56C-4l-PZL" firstAttribute="centerX" secondItem="gQB-4j-4NL" secondAttribute="centerX" id="Cy7-ax-spR"/>
+                                                <constraint firstItem="56C-4l-PZL" firstAttribute="centerY" secondItem="gQB-4j-4NL" secondAttribute="centerY" id="DdZ-KL-mH0"/>
+                                                <constraint firstItem="56C-4l-PZL" firstAttribute="height" secondItem="gQB-4j-4NL" secondAttribute="height" multiplier="0.55" id="VG3-fm-TYJ"/>
+                                                <constraint firstAttribute="width" secondItem="56C-4l-PZL" secondAttribute="width" multiplier="1.1" id="fns-Rb-aoO"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gQB-4j-4NL" firstAttribute="height" secondItem="TNd-w9-u9b" secondAttribute="height" multiplier="0.2" id="6pR-1j-S0v"/>
+                                        <constraint firstItem="m3e-3J-YRg" firstAttribute="centerX" secondItem="TNd-w9-u9b" secondAttribute="centerX" id="HFg-fL-wam"/>
+                                        <constraint firstItem="m3e-3J-YRg" firstAttribute="top" secondItem="TNd-w9-u9b" secondAttribute="top" id="IQe-4W-7Ca"/>
+                                        <constraint firstItem="m3e-3J-YRg" firstAttribute="width" secondItem="TNd-w9-u9b" secondAttribute="width" multiplier="0.77" id="PwS-eb-hAD"/>
+                                        <constraint firstItem="gQB-4j-4NL" firstAttribute="top" secondItem="m3e-3J-YRg" secondAttribute="bottom" constant="4" id="RYy-5u-77w"/>
+                                        <constraint firstItem="gQB-4j-4NL" firstAttribute="centerX" secondItem="m3e-3J-YRg" secondAttribute="centerX" id="bbO-eW-aE5"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="154" height="167"/>
+                                <connections>
+                                    <outlet property="tamagotchiImage" destination="m3e-3J-YRg" id="Waq-CR-UkV"/>
+                                    <outlet property="tamagotchiName" destination="56C-4l-PZL" id="haE-Yg-6ai"/>
+                                    <outlet property="tamagotchiNameBackground" destination="gQB-4j-4NL" id="7zp-3G-TRv"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="YrO-9c-QK8" id="oxh-Rf-RSR"/>
+                            <outlet property="delegate" destination="YrO-9c-QK8" id="L1p-bz-qbb"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="KxT-6R-xg5"/>
+                    <connections>
+                        <outlet property="selectPageBackground" destination="S3G-wp-A5M" id="cpf-wf-Kf4"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAz-oE-hMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892.75362318840587" y="83.705357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e5u-CU-kYw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rbK-GB-1dH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uu9-mJ-vUW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YrO-9c-QK8" kind="relationship" relationship="rootViewController" id="ugJ-wF-YVp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Duz-ci-VNB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17.39130434782609" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1-1" width="152" height="151"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
