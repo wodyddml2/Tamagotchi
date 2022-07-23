@@ -6,6 +6,7 @@ class PopUpViewController: UIViewController {
     static let popIdentifier = "PopUpViewController"
     
     var selectChangeData: SelectChange?
+    var pass:Int?
     
     @IBOutlet weak var popupBackground: UIView!
     @IBOutlet weak var popupImage: UIImageView!
@@ -77,7 +78,7 @@ class PopUpViewController: UIViewController {
         guard let VC = SB.instantiateViewController(withIdentifier: ViewController.mainIdentifier) as? ViewController else {
             return
         }
-        
+        VC.getIndexNumber = pass
         let Nav = UINavigationController(rootViewController: VC)
         
         Nav.modalPresentationStyle = .fullScreen

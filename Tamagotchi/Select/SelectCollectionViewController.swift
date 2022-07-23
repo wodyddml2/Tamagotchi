@@ -60,6 +60,7 @@ class SelectCollectionViewController: UICollectionViewController {
     
     // 선택 시 PopUp창으로 이동
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         let popSB = UIStoryboard(name: "PopUp", bundle: nil)
         guard let popVC = popSB.instantiateViewController(withIdentifier: PopUpViewController.popIdentifier) as? PopUpViewController else {
             return
@@ -67,6 +68,7 @@ class SelectCollectionViewController: UICollectionViewController {
         popVC.modalPresentationStyle = .overFullScreen
         if indexPath.row < selectChange.select.count{
             popVC.selectChangeData = selectChange.select[indexPath.row]
+            popVC.pass = indexPath.row + 1
             present(popVC, animated: true)
         } else {
             // Toast 라이브러리를 이용한 나머지 cell들의 팝업창

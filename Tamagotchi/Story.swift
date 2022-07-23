@@ -3,7 +3,9 @@
 import Foundation
 
 class Story {
-    
+    var storyBasic: [String] = [
+        "\(ViewController.userName)님 안녕하세요!!!!", "왠지 오랜만에 뵙는 것 같은데요?", "보고싶었어요~~", "얼른 물부터 주세요!"
+    ]
     var story1_2: [String] = [
         "물이 시원하네요~", "오늘은 날씨가 좋아요!" ,"고마워요!!", "반가워요 \(ViewController.userName)님!!"
     ]
