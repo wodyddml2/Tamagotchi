@@ -26,8 +26,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var riceButton: UIButton!
     @IBOutlet weak var waterButton: UIButton!
     
-    var getIndexNumber:Int?
-    
+    let getIndexNumber = UserDefaults.standard.integer(forKey: "index")
+    var selectChangeData = SelectChangeInfo()
   
     static var userName:String = "재용"
     var tamagtchiTalk = Story()
@@ -54,6 +54,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // 다마고치 이름 Label 스타일
         mainNameBackground.tamagotchiLabelBackground()
         mainName.tamagotchiLabel(15)
+        
+        mainName.text = selectChangeData.select[getIndexNumber-1].name
         
         // Lv, 밥알, 믈방울, story Label 스타일
         mainLevel.mainLabels()
@@ -85,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
     }
-    
+    // 메인화면 입장 시 문구
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         storyLabel.text = tamagtchiTalk.storyBasic.randomElement()!
@@ -156,57 +158,58 @@ class ViewController: UIViewController, UITextFieldDelegate {
         waterTextField.text = ""
     }
 
+    // Lv과 Lv에 따른 이미지, Lv마다 이야기 Label을 경험치 양마다 설정
     func levelUp() {
         let levelPoint = (riceCount/5) + (waterCount/2)
         switch levelPoint {
         case 0..<20:
             levelCount = 1
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story1_2.randomElement()!
         case 20..<30:
             levelCount = 2
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story1_2.randomElement()!
         case 30..<40:
             levelCount = 3
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story3_4.randomElement()!
         case 40..<50:
             levelCount = 4
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story3_4.randomElement()!
         case 50..<60:
             levelCount = 5
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story5_6.randomElement()!
         case 60..<70:
             levelCount = 6
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story5_6.randomElement()!
         case 70..<80:
             levelCount = 7
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story7_8_9.randomElement()!
         case 80..<90:
             levelCount = 8
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story7_8_9.randomElement()!
         case 90..<100:
             levelCount = 9
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story7_8_9.randomElement()!
         default:
             levelCount = 10
-            mainImage.image = UIImage(named: "\(getIndexNumber ?? 1)-\(levelCount-1)")
+            mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount-1)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.story10.randomElement()!
         }

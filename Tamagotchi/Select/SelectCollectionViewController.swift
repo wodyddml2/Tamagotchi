@@ -47,7 +47,7 @@ class SelectCollectionViewController: UICollectionViewController {
         
         // cell에 적용할 Image와 Label 설정
         if indexPath.row < selectChange.select.count{
-            cell.tamagotchiImage.image = UIImage(named: selectChange.select[indexPath.row].image)
+            cell.tamagotchiImage.image = UIImage(named: "\(selectChange.select[indexPath.row].image)-6")
             cell.tamagotchiName.text = selectChange.select[indexPath.row].name
         } else {
             cell.tamagotchiImage.image = UIImage(named: "noImage")
@@ -68,7 +68,8 @@ class SelectCollectionViewController: UICollectionViewController {
         popVC.modalPresentationStyle = .overFullScreen
         if indexPath.row < selectChange.select.count{
             popVC.selectChangeData = selectChange.select[indexPath.row]
-            popVC.pass = indexPath.row + 1
+
+            UserDefaults.standard.set(indexPath.row+1, forKey: "index")
             present(popVC, animated: true)
         } else {
             // Toast 라이브러리를 이용한 나머지 cell들의 팝업창

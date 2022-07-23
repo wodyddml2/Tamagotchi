@@ -6,7 +6,7 @@ class PopUpViewController: UIViewController {
     static let popIdentifier = "PopUpViewController"
     
     var selectChangeData: SelectChange?
-    var pass:Int?
+    
     
     @IBOutlet weak var popupBackground: UIView!
     @IBOutlet weak var popupImage: UIImageView!
@@ -31,7 +31,7 @@ class PopUpViewController: UIViewController {
         view.alpha = 1
         
         // select화면에서 데이터 가져오기
-        popupImage.image = UIImage(named: selectChangeData?.image ?? "1-1")
+        popupImage.image = UIImage(named: "\(selectChangeData?.image ?? "1")-6")
         popupName.text = selectChangeData?.name
         intro.text = selectChangeData?.story
         
@@ -74,16 +74,16 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func okButtonClicked(_ sender: UIButton) {
+        UserDefaults.standard.set(true, forKey: "tamagotchi")
         let SB = UIStoryboard(name: "Main", bundle: nil)
         guard let VC = SB.instantiateViewController(withIdentifier: ViewController.mainIdentifier) as? ViewController else {
             return
         }
-        VC.getIndexNumber = pass
+        
         let Nav = UINavigationController(rootViewController: VC)
         
         Nav.modalPresentationStyle = .fullScreen
         present(Nav, animated: true)
-        
     }
     
 
