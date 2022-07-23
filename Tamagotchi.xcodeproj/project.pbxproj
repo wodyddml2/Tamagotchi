@@ -26,7 +26,8 @@
 		63641ADF288ABBC800E995F1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */; };
 		63641AE1288ABBDE00E995F1 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */; };
 		63641AE3288ABC6600E995F1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE2288ABC6600E995F1 /* UIView+Extension.swift */; };
-		63E573A3288AF2D200EB1905 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 63E573A2288AF2D200EB1905 /* TextFieldEffects */; };
+		63D1B47B288BAF4600E19915 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47A288BAF4600E19915 /* Story.swift */; };
+		63D1B47F288BD58100E19915 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47E288BD58100E19915 /* UITextField+Extension.swift */; };
 		63E573A6288AF2E100EB1905 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 63E573A5288AF2E100EB1905 /* Toast */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		63641AE2288ABC6600E995F1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		63D1B47A288BAF4600E19915 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		63D1B47E288BD58100E19915 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +63,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E573A6288AF2E100EB1905 /* Toast in Frameworks */,
-				63E573A3288AF2D200EB1905 /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +92,7 @@
 				63641AB0288A7B1500E995F1 /* SceneDelegate.swift */,
 				63641AB2288A7B1500E995F1 /* ViewController.swift */,
 				63641AB4288A7B1500E995F1 /* Main.storyboard */,
+				63D1B47A288BAF4600E19915 /* Story.swift */,
 				63641AC7288A858700E995F1 /* PopUp */,
 				63641AC4288A856F00E995F1 /* Select */,
 				63641AD0288A861600E995F1 /* Setting */,
@@ -136,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */,
+				63D1B47E288BD58100E19915 /* UITextField+Extension.swift */,
 				63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */,
 				63641AE2288ABC6600E995F1 /* UIView+Extension.swift */,
 			);
@@ -159,7 +163,6 @@
 			);
 			name = Tamagotchi;
 			packageProductDependencies = (
-				63E573A2288AF2D200EB1905 /* TextFieldEffects */,
 				63E573A5288AF2E100EB1905 /* Toast */,
 			);
 			productName = Tamagotchi;
@@ -191,7 +194,6 @@
 			);
 			mainGroup = 63641AA2288A7B1500E995F1;
 			packageReferences = (
-				63E573A1288AF2D200EB1905 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				63E573A4288AF2E100EB1905 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 63641AAC288A7B1500E995F1 /* Products */;
@@ -224,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D1B47F288BD58100E19915 /* UITextField+Extension.swift in Sources */,
 				63641AD2288A862C00E995F1 /* SettingTableViewController.swift in Sources */,
 				63641AE3288ABC6600E995F1 /* UIView+Extension.swift in Sources */,
 				63641ACB288A85C500E995F1 /* SelectCollectionViewCell.swift in Sources */,
@@ -231,6 +234,7 @@
 				63641ADF288ABBC800E995F1 /* UIButton+Extension.swift in Sources */,
 				63641AB3288A7B1500E995F1 /* ViewController.swift in Sources */,
 				63641AAF288A7B1500E995F1 /* AppDelegate.swift in Sources */,
+				63D1B47B288BAF4600E19915 /* Story.swift in Sources */,
 				63641ADA288AA5FE00E995F1 /* SelectChange.swift in Sources */,
 				63641AC9288A85BA00E995F1 /* SelectCollectionViewController.swift in Sources */,
 				63641AE1288ABBDE00E995F1 /* UILabel+Extension.swift in Sources */,
@@ -460,14 +464,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		63E573A1288AF2D200EB1905 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		63E573A4288AF2E100EB1905 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -479,11 +475,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		63E573A2288AF2D200EB1905 /* TextFieldEffects */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63E573A1288AF2D200EB1905 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
-			productName = TextFieldEffects;
-		};
 		63E573A5288AF2E100EB1905 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63E573A4288AF2E100EB1905 /* XCRemoteSwiftPackageReference "Toast-Swift" */;

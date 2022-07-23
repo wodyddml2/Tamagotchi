@@ -44,7 +44,7 @@ class PopUpViewController: UIViewController {
         
         // 이름 스타일
         popupNameBackground.tamagotchiLabelBackground()
-        popupName.tamagotchiLabel()
+        popupName.tamagotchiLabel(13)
         
         // 구분선 색상
         sectionLine.backgroundColor = UIColor(named: "LineColor")
@@ -54,7 +54,7 @@ class PopUpViewController: UIViewController {
         
         // 소개 글 스타일
         intro.numberOfLines = 0
-        intro.tamagotchiLabel()
+        intro.tamagotchiLabel(13)
         
         // 버튼 위 구분선
         buttonTopLine.backgroundColor = UIColor(named: "LineColor")

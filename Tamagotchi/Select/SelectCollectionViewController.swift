@@ -43,7 +43,7 @@ class SelectCollectionViewController: UICollectionViewController {
 
         // 선택 화면 객체 스타일
         cell.tamagotchiNameBackground.tamagotchiLabelBackground()
-        cell.tamagotchiName.tamagotchiLabel()
+        cell.tamagotchiName.tamagotchiLabel(13)
         
         // cell에 적용할 Image와 Label 설정
         if indexPath.row < selectChange.select.count{
@@ -69,7 +69,8 @@ class SelectCollectionViewController: UICollectionViewController {
             popVC.selectChangeData = selectChange.select[indexPath.row]
             present(popVC, animated: true)
         } else {
-            print("")
+            // Toast 라이브러리를 이용한 나머지 cell들의 팝업창
+            view.makeToast("아직 준비가 안됐어요 ㅠㅠ", duration: 2.0, position: .center, title: "(?) 다마고치", image: UIImage(named: "noImage"), style: ToastStyle(), completion: nil)
         }
         
     }
