@@ -30,15 +30,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
     static var userName:String = "재용"
     var tamagtchiTalk = Story()
-    
-    var levelCount = 0
-    var riceCount:Double = 0
-    var waterCount: Double  = 0
+  
+    var levelCount = UserDefaults.standard.integer(forKey: "level") + 1
+    var riceCount:Double = UserDefaults.standard.double(forKey: "rice")
+    var waterCount: Double  = UserDefaults.standard.double(forKey: "water")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         riceTextField.delegate = self
         waterTextField.delegate = self
+        
+        
+        
+        // 세 가지 Label 값
+        mainRice.text = "· 밥알 \(Int(riceCount))개"
+        mainWater.text = "· 물방울 \(Int(waterCount))개"
+        
+        levelUp()
         
         // 배경색 지정
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
@@ -74,8 +82,54 @@ class ViewController: UIViewController, UITextFieldDelegate {
         riceSection.backgroundColor = .black
         waterSection.backgroundColor = .black
         
+        
     }
     
+    func levelUp() {
+        let levelPoint = (riceCount/5) + (waterCount/2)
+        switch levelPoint {
+        case 0..<20:
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 20..<30:
+            levelCount = 2
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 30..<40:
+            levelCount = 3
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 40..<50:
+            levelCount = 4
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 50..<60:
+            levelCount = 5
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 60..<70:
+            levelCount = 6
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 70..<80:
+            levelCount = 7
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 80..<90:
+            levelCount = 8
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        case 90..<100:
+            levelCount = 9
+            mainImage.image = UIImage(named: "1-\(levelCount)")
+            mainLevel.text = "Lv\(levelCount)"
+        default:
+            levelCount = 10
+            mainImage.image = UIImage(named: "1-\(levelCount-1)")
+            mainLevel.text = "Lv\(levelCount)"
+        }
+        UserDefaults.standard.set(levelCount, forKey: "level")
+    }
     
     // action - setting으로 push
     @objc func nextButton() {
@@ -114,16 +168,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
             } else {
                 view.makeToast("이 이상은 못먹어요!!!")
             }
+            UserDefaults.standard.set(riceCount, forKey: "rice")
             mainRice.text = "· 밥알 \(Int(riceCount))개"
+            levelUp()
         }
         riceTextField.text = ""
+        
         print( (riceCount/5) + (waterCount/2))
     }
     
     // 물방울 버튼
     @IBAction func waterButtonClicked(_ sender: UIButton) {
-        let water = UserDefaults.standard.double(forKey: <#T##String#>)
-        UserDefaults.standard.set(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
+        
         if Double(waterTextField.text ?? "") == nil && !(waterTextField.text?.isEmpty ?? true) {
             view.makeToast("숫자를 입력해주세요!!")
         } else {
@@ -135,13 +191,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
             } else {
                 view.makeToast("이 이상은 못마셔요!!!")
             }
-            mainWater.text = "· 밥알 \(Int(waterCount))개"
+            UserDefaults.standard.set(riceCount, forKey: "water")
+            mainWater.text = "· 물방울 \(Int(waterCount))개"
+            levelUp()
         }
         waterTextField.text = ""
         
     }
-    if water == 0 {
-        UserDefaults.standard.set(waterCount, forKey: "water")
-    }
+//    if water == 0 {
+//        UserDefaults.standard.set(waterCount, forKey: "water")
+//    }
 }
 
