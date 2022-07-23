@@ -70,7 +70,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0In-JP-gIW" secondAttribute="height" multiplier="93:19" id="qLQ-Rh-Kne"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">

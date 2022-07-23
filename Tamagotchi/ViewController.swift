@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     static var userName:String = "재용"
     var tamagtchiTalk = Story()
   
-    var levelCount = UserDefaults.standard.integer(forKey: "level") + 1
+    var levelCount = UserDefaults.standard.integer(forKey: "level")
     var riceCount:Double = UserDefaults.standard.double(forKey: "rice")
     var waterCount: Double  = UserDefaults.standard.double(forKey: "water")
     
@@ -55,10 +55,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         mainNameBackground.tamagotchiLabelBackground()
         mainName.tamagotchiLabel(15)
         
-        // Lv, 밥알, 믈방울 Label 스타일
+        // Lv, 밥알, 믈방울, story Label 스타일
         mainLevel.mainLabels()
         mainRice.mainLabels()
         mainWater.mainLabels()
+        storyLabel.mainLabels()
         
         // navigation 설정
         // \()로 나중에 바꿔주자
@@ -89,44 +90,55 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let levelPoint = (riceCount/5) + (waterCount/2)
         switch levelPoint {
         case 0..<20:
+            levelCount = 1
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story1_2.randomElement()!
         case 20..<30:
             levelCount = 2
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story1_2.randomElement()!
         case 30..<40:
             levelCount = 3
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story3_4.randomElement()!
         case 40..<50:
             levelCount = 4
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story3_4.randomElement()!
         case 50..<60:
             levelCount = 5
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story5_6.randomElement()!
         case 60..<70:
             levelCount = 6
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story5_6.randomElement()!
         case 70..<80:
             levelCount = 7
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story7_8_9.randomElement()!
         case 80..<90:
             levelCount = 8
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story7_8_9.randomElement()!
         case 90..<100:
             levelCount = 9
             mainImage.image = UIImage(named: "1-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story7_8_9.randomElement()!
         default:
             levelCount = 10
             mainImage.image = UIImage(named: "1-\(levelCount-1)")
             mainLevel.text = "Lv\(levelCount)"
+            storyLabel.text = tamagtchiTalk.story10.randomElement()!
         }
         UserDefaults.standard.set(levelCount, forKey: "level")
     }
@@ -173,8 +185,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             levelUp()
         }
         riceTextField.text = ""
-        
-        print( (riceCount/5) + (waterCount/2))
     }
     
     // 물방울 버튼
@@ -191,15 +201,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             } else {
                 view.makeToast("이 이상은 못마셔요!!!")
             }
-            UserDefaults.standard.set(riceCount, forKey: "water")
+            UserDefaults.standard.set(waterCount, forKey: "water")
             mainWater.text = "· 물방울 \(Int(waterCount))개"
             levelUp()
         }
         waterTextField.text = ""
-        
     }
-//    if water == 0 {
-//        UserDefaults.standard.set(waterCount, forKey: "water")
-//    }
+
 }
 

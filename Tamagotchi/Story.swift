@@ -5,19 +5,19 @@ import Foundation
 class Story {
     
     var story1_2: [String] = [
-        "배고파요 밥주세요!!", "밥 줘" ," 빨리", "\(ViewController.userName)님 밥주세여"
+        "물이 시원하네요~", "오늘은 날씨가 좋아요!" ,"고마워요!!", "반가워요 \(ViewController.userName)님!!"
     ]
     var story3_4: [String] = [
-        "배고파요 밥주세요!!", "밥 줘" ," 빨리", "\(ViewController.userName)님 밥주오"
+        "오늘도 감사합니다!!", "밥 내놔..." ," 빨리 성장하고 싶네요^^", "\(ViewController.userName)님 배고파요..."
     ]
     var story5_6: [String] = [
-        "배고파요 밥주세요!!", "밥 줘" ," 빨리", "\(ViewController.userName)님 밥주라"
+        "오늘도 열심히 공부중이신가요??", "목말라유 :(" ,"전 이제 자야겠어요ㅎㅎㅎ", "\(ViewController.userName)님 힘내세요!!"
     ]
     var story7_8_9: [String] = [
-        "배고파요 밥주세요!!", "밥 줘" ," 빨리", "\(ViewController.userName)님 밥주시오"
+        "입 좀 행구고 싶네요~", "조금만 더 먹으면 완벽할 것 같아요!!" ,"항상 감사합니다!", "\(ViewController.userName)님 오늘 좋은 하루 되세요 :)"
     ]
     var story10: [String] = [
-        "배고파요 밥주세요!!", "밥 줘" ," 빨리", "\(ViewController.userName)님 밥주십니다"
+        "이제 그만줘요ㅠㅠ", "배불러 죽겠어요!!" ,"토할 것 같아요...", "\(ViewController.userName)님 전 이제 다 컸습니다!"
     ]
   
 }
