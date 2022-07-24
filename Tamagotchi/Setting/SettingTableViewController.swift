@@ -40,7 +40,35 @@ class SettingTableViewController: UITableViewController {
         print(#function)
     }
    
-   
+    func resetAlert() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let selectSB = UIStoryboard(name: "Select", bundle: nil)
+        guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else {
+            return
+        }
+        
+        let selectNav = UINavigationController(rootViewController: selectVC)
+        let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 키우실 건가요?!", preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "네^^", style: .default, handler:  { action in
+            sceneDelegate?.window?.rootViewController = selectNav
+            sceneDelegate?.window?.makeKeyAndVisible()
+            SelectCollectionViewController.selectChange = "선택하기"
+            PopUpViewController.popupChange = "시작하기"
+            UserDefaults.standard.removeObject(forKey: "level")
+            UserDefaults.standard.removeObject(forKey: "nickname")
+            UserDefaults.standard.removeObject(forKey: "rice")
+            UserDefaults.standard.removeObject(forKey: "water")
+            UserDefaults.standard.removeObject(forKey: "tamagotchi")
+        })
+        let cancel = UIAlertAction(title: "장난이에요ㅎㅎ", style: .cancel, handler: nil)
+        
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,14 +109,11 @@ class SettingTableViewController: UITableViewController {
             return
         }
         
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+     
         let selectSB = UIStoryboard(name: "Select", bundle: nil)
         guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else {
             return
         }
-        
-        let selectNav = UINavigationController(rootViewController: selectVC)
         
         
         switch indexPath.row {
@@ -101,15 +126,7 @@ class SettingTableViewController: UITableViewController {
             self.navigationController?.pushViewController(selectVC, animated: true)
             
         case SettingCell.dataReset.rawValue:
-            sceneDelegate?.window?.rootViewController = selectNav
-            sceneDelegate?.window?.makeKeyAndVisible()
-            SelectCollectionViewController.selectChange = "선택하기"
-            PopUpViewController.popupChange = "시작하기"
-            UserDefaults.standard.removeObject(forKey: "level")
-            UserDefaults.standard.removeObject(forKey: "nickname")
-            UserDefaults.standard.removeObject(forKey: "rice")
-            UserDefaults.standard.removeObject(forKey: "water")
-            UserDefaults.standard.removeObject(forKey: "tamagotchi")
+            resetAlert()
         default:
             return
         }
