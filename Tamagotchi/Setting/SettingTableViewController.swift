@@ -101,7 +101,7 @@ class SettingTableViewController: UITableViewController {
         cell.settingImage.image = UIImage(systemName: SettingCell.allCases[indexPath.row].cellInfo[0])
         cell.settingTitle.text = SettingCell.allCases[indexPath.row].cellInfo[1]
         cell.user.text = SettingCell.allCases[indexPath.row].cellInfo[2]
-       
+        
         // systemSymbols 색상
         cell.settingImage.tintColor = UIColor(named: "NameColor")
         // 설정창 sub제목들 스타일
@@ -120,6 +120,8 @@ class SettingTableViewController: UITableViewController {
 
     // cell 선택 시
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // cell 클릭 시 회색 하이라이트 없애기
+        tableView.deselectRow(at: indexPath, animated: true)
         
         let nameSB = UIStoryboard(name: "Setting", bundle: nil)
         guard let nameVC = nameSB.instantiateViewController(withIdentifier: "NameChangeViewController") as? NameChangeViewController else {
