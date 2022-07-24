@@ -98,7 +98,6 @@
 				63641AB4288A7B1500E995F1 /* Main.storyboard */,
 				63D1B47A288BAF4600E19915 /* Story.swift */,
 				63641AC7288A858700E995F1 /* PopUp */,
-				63641AC4288A856F00E995F1 /* Select */,
 				63641AD0288A861600E995F1 /* Setting */,
 				63641ADD288ABB9400E995F1 /* Extension */,
 				63641AB7288A7B1700E995F1 /* Assets.xcassets */,
@@ -125,6 +124,7 @@
 			children = (
 				63641AC5288A858200E995F1 /* PopUp.storyboard */,
 				63641ACC288A85DA00E995F1 /* PopUpViewController.swift */,
+				63641AC4288A856F00E995F1 /* Select */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";

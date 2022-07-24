@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         riceTextField.delegate = self
         waterTextField.delegate = self
     
-        
+        setKeyboardObserver()
         // 세 가지 Label 값
         mainRice.text = "· 밥알 \(Int(riceCount))개"
         mainWater.text = "· 물방울 \(Int(waterCount))개"
@@ -97,6 +97,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         navigationItem.title = "\(nickName)님의 다마고치"
         levelUp()
 
+    }
+    // 옵저버를 제거해줌으로써 키보드 올린채 화면 넘어갔다 다시 올 때 화면 깨짐 방지
+    override func viewWillDisappear(_ animated: Bool) {
+        removeKeyboardObserver()
     }
     
     // action - setting으로 push
