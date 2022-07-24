@@ -159,8 +159,8 @@ class ViewController: UIViewController {
     }
 
     // Lv과 Lv에 따른 이미지, Lv마다 이야기 Label을 경험치 양마다 설정
-    func levelUp(_ a: String) {
-        var tamagtchiTalk = Story(nick: a)
+    func levelUp(_ nick: String) {
+        let tamagtchiTalk = Story(nick: nick)
         let levelPoint = (riceCount/5) + (waterCount/2)
         switch levelPoint {
         case 0..<20:
