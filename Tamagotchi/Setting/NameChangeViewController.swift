@@ -26,7 +26,7 @@ class NameChangeViewController: UIViewController {
         sectionLine.backgroundColor = .black
         print(#function)
     }
-    //nillq 병합으로 기본값
+
     @objc func saveAction() {
         UserDefaults.standard.set(nameTextField.text, forKey: "nickname")
         
@@ -37,21 +37,5 @@ class NameChangeViewController: UIViewController {
         
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        print(#function)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        print(#function)
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        print(#function)
-    }
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        print(#function)
-    }
+  
 }

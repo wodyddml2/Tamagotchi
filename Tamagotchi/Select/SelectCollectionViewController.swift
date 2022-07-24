@@ -6,7 +6,8 @@ import Toast
 class SelectCollectionViewController: UICollectionViewController {
     
     static let selectIndentifier = "SelectCollectionViewController"
-
+    static var selectChange = "선택하기"
+    
     @IBOutlet weak var selectPageBackground: UIView!
     
     let selectChange = SelectChangeInfo()
@@ -14,7 +15,7 @@ class SelectCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 헤더 제목
-        navigationItem.title = "다마고치 선택하기"
+        navigationItem.title = "다마고치 \(SelectCollectionViewController.selectChange)"
         
         // 스크롤 바 없애기
         collectionView.showsVerticalScrollIndicator = false

@@ -40,6 +40,7 @@ class SettingTableViewController: UITableViewController {
         print(#function)
     }
    
+   
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,16 +81,37 @@ class SettingTableViewController: UITableViewController {
             return
         }
         
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let selectSB = UIStoryboard(name: "Select", bundle: nil)
+        guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else {
+            return
+        }
+        
+        let selectNav = UINavigationController(rootViewController: selectVC)
+        
         
         switch indexPath.row {
         case SettingCell.nameSet.rawValue:
             self.navigationController?.pushViewController(nameVC, animated: true)
+            
         case SettingCell.tamagotchiChange.rawValue:
-            print("")
+            SelectCollectionViewController.selectChange = "변경하기"
+            PopUpViewController.popupChange = "변경하기"
+            self.navigationController?.pushViewController(selectVC, animated: true)
+            
         case SettingCell.dataReset.rawValue:
-            print("")
+            sceneDelegate?.window?.rootViewController = selectNav
+            sceneDelegate?.window?.makeKeyAndVisible()
+            SelectCollectionViewController.selectChange = "선택하기"
+            PopUpViewController.popupChange = "시작하기"
+            UserDefaults.standard.removeObject(forKey: "level")
+            UserDefaults.standard.removeObject(forKey: "nickname")
+            UserDefaults.standard.removeObject(forKey: "rice")
+            UserDefaults.standard.removeObject(forKey: "water")
+            UserDefaults.standard.removeObject(forKey: "tamagotchi")
         default:
-            print("")
+            return
         }
     }
 }

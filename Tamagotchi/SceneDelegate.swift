@@ -14,32 +14,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        UserDefaults.standard.set(false, forKey: "tamagotchi")
+//        UserDefaults.standard.set(false, forKey: "tamagotchi")
         
         if UserDefaults.standard.bool(forKey: "tamagotchi") {
             guard let scene = (scene as? UIWindowScene) else { return }
             window = UIWindow(windowScene: scene)
             
             let mainSB = UIStoryboard(name: "Main", bundle: nil)
+            
             guard let mainVC = mainSB.instantiateViewController(withIdentifier: ViewController.mainIdentifier) as? ViewController else { return }
             
             let mainNav = UINavigationController(rootViewController: mainVC)
             
             window?.rootViewController = mainNav
+            
         } else {
             guard let scene = (scene as? UIWindowScene) else { return }
             window = UIWindow(windowScene: scene)
             
             let selectSB = UIStoryboard(name: "Select", bundle: nil)
             
+            
             guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else {
                 return
             }
             
-            window?.rootViewController = selectVC
+            let selectNav = UINavigationController(rootViewController: selectVC)
+            
+            window?.rootViewController = selectNav
             
         }
-        
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

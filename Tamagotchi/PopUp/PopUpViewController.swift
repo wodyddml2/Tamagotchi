@@ -6,7 +6,7 @@ class PopUpViewController: UIViewController {
     static let popIdentifier = "PopUpViewController"
     
     var selectChangeData: SelectChange?
-    
+    static var popupChange = "시작하기"
     
     @IBOutlet weak var popupBackground: UIView!
     @IBOutlet weak var popupImage: UIImageView!
@@ -64,7 +64,7 @@ class PopUpViewController: UIViewController {
         cancleButton.backgroundColor = UIColor(named: "CancleColor")
         cancleButton.popButton("취소")
         // ok 버튼
-        okButton.popButton("시작하기")
+        okButton.popButton(PopUpViewController.popupChange)
        
         
 
