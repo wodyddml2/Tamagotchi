@@ -65,8 +65,6 @@ class ViewController: UIViewController {
         riceSection.backgroundColor = .black
         waterSection.backgroundColor = .black
         
-        // 키보드 올릴 시 화면 같이 올려주는 기능
-        setKeyboardObserver()
         
         // 밥알, 물방울 Label 값
         mainRice.text = "· 밥알 \(Int(riceCount))개"
@@ -94,6 +92,8 @@ class ViewController: UIViewController {
         navigationItem.title = "\(nickName)님의 다마고치"
         // 레벨마다의 말풍선과 등등...
         levelUp(nickName)
+        // 키보드 올릴 시 화면 같이 올려주는 기능
+        setKeyboardObserver()
     }
     
     // 옵저버를 제거해줌으로써 키보드 올린채 화면 넘어갔다 다시 올 때 화면 깨짐 방지
@@ -136,6 +136,7 @@ class ViewController: UIViewController {
             levelUp(nickName)
         }
         riceTextField.text = ""
+        view.endEditing(true)
     }
     
     // 물방울 버튼
@@ -156,6 +157,7 @@ class ViewController: UIViewController {
             levelUp(nickName)
         }
         waterTextField.text = ""
+        view.endEditing(true)
     }
 
     // Lv과 Lv에 따른 이미지, Lv마다 이야기 Label을 경험치 양마다 설정

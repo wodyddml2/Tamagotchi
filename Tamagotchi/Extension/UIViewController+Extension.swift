@@ -29,7 +29,7 @@ extension UIViewController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            UIView.animate(withDuration: 0.2, animations: {self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + 150)}, completion: nil)
+            UIView.animate(withDuration: 0.2, animations: {self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + 120)}, completion: nil)
         }
     }
     // CGAffineTransform.identity: 변환 전 고유의 값으로 돌려준다.
