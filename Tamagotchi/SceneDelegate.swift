@@ -8,7 +8,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-//        UserDefaults.standard.set(false, forKey: "tamagotchi")
         
         if UserDefaults.standard.bool(forKey: "tamagotchi") {
             guard let scene = (scene as? UIWindowScene) else { return }

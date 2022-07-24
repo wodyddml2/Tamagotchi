@@ -3,6 +3,7 @@
 import UIKit
 
 extension UITextField {
+    // 메인 화면 테스트필드 스타일
     func mainTextField(_ text:String) {
         self.borderStyle = .none
         self.placeholder = text

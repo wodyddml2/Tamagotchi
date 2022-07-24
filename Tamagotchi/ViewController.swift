@@ -1,10 +1,9 @@
 
-
 import UIKit
 import Toast
 
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController {
     static let mainIdentifier = "ViewController"
     
     @IBOutlet weak var storyLabel: UILabel!
@@ -26,38 +25,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var riceButton: UIButton!
     @IBOutlet weak var waterButton: UIButton!
     
-    
-    
-    let getIndexNumber = UserDefaults.standard.integer(forKey: "index")
+    // 다마고치 말풍선 class 초기화
+    var tamagtchiTalk = Story()
+   
+    //  다마고치 이름을 가져오기 위해 struct 초기화
     var selectChangeData = SelectChangeInfo()
   
-    
-    var tamagtchiTalk = Story()
-  
+    // UserDefault 초기화
+    let getIndexNumber = UserDefaults.standard.integer(forKey: "index")
     var levelCount = UserDefaults.standard.integer(forKey: "level")
     var riceCount:Double = UserDefaults.standard.double(forKey: "rice")
     var waterCount: Double  = UserDefaults.standard.double(forKey: "water")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        riceTextField.delegate = self
-        waterTextField.delegate = self
-    
-        setKeyboardObserver()
-        // 세 가지 Label 값
-        mainRice.text = "· 밥알 \(Int(riceCount))개"
-        mainWater.text = "· 물방울 \(Int(waterCount))개"
-        
-        
         
         // 배경색 지정
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        
+
         // 다마고치 이름 Label 스타일
         mainNameBackground.tamagotchiLabelBackground()
         mainName.tamagotchiLabel(15)
-        
-        mainName.text = selectChangeData.select[getIndexNumber-1].name
         
         // Lv, 밥알, 믈방울, story Label 스타일
         mainLevel.mainLabels()
@@ -65,16 +53,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         mainWater.mainLabels()
         storyLabel.mainLabels()
         
-        // navigation 설정
-        // \()로 나중에 바꿔주자
-        
-        // titleTextAttributes: 글꼴또는 색상 등의 변경을 할 수 있는 기능
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "NameColor") ?? .black]
-        navigationController?.navigationBar.tintColor = UIColor(named: "NameColor")
-        navigationItem.backButtonTitle = " "
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(nextButton))
-    
         // 버튼 스타일
         riceButton.eatButton("drop.circle","밥먹기")
         waterButton.eatButton("leaf.circle","물먹기")
@@ -87,21 +65,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
         riceSection.backgroundColor = .black
         waterSection.backgroundColor = .black
         
+        // 키보드 올릴 시 화면 같이 올려주는 기능
+        setKeyboardObserver()
         
+        // 밥알, 물방울 Label 값
+        mainRice.text = "· 밥알 \(Int(riceCount))개"
+        mainWater.text = "· 물방울 \(Int(waterCount))개"
+        
+        // 다마고치 이름
+        mainName.text = selectChangeData.select[getIndexNumber-1].name
+        
+        // navigation 설정
+        // titleTextAttributes: 글꼴또는 색상 등의 변경을 할 수 있는 기능
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "NameColor") ?? .black]
+        navigationController?.navigationBar.tintColor = UIColor(named: "NameColor")
+        navigationItem.backButtonTitle = " "
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(nextButton))
+
     }
+    
     // 메인화면 입장 시 문구
     override func viewWillAppear(_ animated: Bool) {
-
+        // 처음 입장 시 나오는 말풍선
         storyLabel.text = tamagtchiTalk.storyBasic.randomElement()!
+        // 뷰컨 생명주기를 이용하여 이름 변경 적용
         nickName = UserDefaults.standard.string(forKey: "nickname") ?? "재용"
         navigationItem.title = "\(nickName)님의 다마고치"
+        
         levelUp()
 
     }
+    
     // 옵저버를 제거해줌으로써 키보드 올린채 화면 넘어갔다 다시 올 때 화면 깨짐 방지
     override func viewWillDisappear(_ animated: Bool) {
         removeKeyboardObserver()
     }
+    
     
     // action - setting으로 push
     @objc func nextButton() {
@@ -114,15 +114,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    // return작용
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        riceTextField.resignFirstResponder()
-        waterTextField.resignFirstResponder()
-        
-        return true
-    }
-    
-    // 바탕 터치 시 편집중단
+    // 바탕 터치 시 편집 중단
     @IBAction func keyboardReturn(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -130,7 +122,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // 밥알 버튼
     @IBAction func riceButtonClicked(_ sender: UIButton) {
         if Double(riceTextField.text ?? "") == nil && !(riceTextField.text?.isEmpty ?? true) {
-            view.makeToast("숫자를 입력해주세요!!")
+            view.makeToast("숫자를 입력해주세요ㅠㅠ", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
         } else {
             
             if riceTextField.text?.isEmpty ?? true {
@@ -138,7 +130,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             } else if (Double(riceTextField.text ?? "") ?? 0) < 100{
                 riceCount += Double(riceTextField.text ?? "") ?? 0
             } else {
-                view.makeToast("이 이상은 못먹어요!!!")
+                view.makeToast("이 이상은 못먹어요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
             UserDefaults.standard.set(riceCount, forKey: "rice")
             mainRice.text = "· 밥알 \(Int(riceCount))개"
@@ -151,15 +143,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func waterButtonClicked(_ sender: UIButton) {
         
         if Double(waterTextField.text ?? "") == nil && !(waterTextField.text?.isEmpty ?? true) {
-            view.makeToast("숫자를 입력해주세요!!")
+            view.makeToast("숫자를 입력해주세요ㅠㅠ", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
         } else {
             if waterTextField.text?.isEmpty ?? true {
                 waterCount += 1
-               
             } else if (Double(waterTextField.text ?? "") ?? 0) < 50{
                 waterCount += Double(waterTextField.text ?? "") ?? 0
             } else {
-                view.makeToast("이 이상은 못마셔요!!!")
+                view.makeToast("이 이상은 못마셔요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
             UserDefaults.standard.set(waterCount, forKey: "water")
             mainWater.text = "· 물방울 \(Int(waterCount))개"

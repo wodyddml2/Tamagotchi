@@ -2,6 +2,7 @@
 import UIKit
 
 extension UIView {
+    // 다마고치 이름 배경 스타일
     func tamagotchiLabelBackground() {
         self.backgroundColor = UIColor(named: "LabelColor")
         self.layer.masksToBounds = true
@@ -9,6 +10,4 @@ extension UIView {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(named: "LineColor")?.cgColor
     }
-    
-   
 }

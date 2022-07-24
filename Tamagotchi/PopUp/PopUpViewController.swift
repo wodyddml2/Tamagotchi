@@ -5,8 +5,10 @@ class PopUpViewController: UIViewController {
     
     static let popIdentifier = "PopUpViewController"
     
-    var selectChangeData: SelectChange?
+    // 변경하기를 위한 변수
     static var popupChange = "시작하기"
+    
+    var selectChangeData: SelectChange?
     
     @IBOutlet weak var popupBackground: UIView!
     @IBOutlet weak var popupImage: UIImageView!
@@ -69,6 +71,7 @@ class PopUpViewController: UIViewController {
         
 
     }
+    
     @IBAction func cancleButtonClicked(_ sender: UIButton) {
         dismiss(animated: true)
     }
