@@ -70,10 +70,13 @@ class SettingTableViewController: UITableViewController {
             UserDefaults.standard.removeObject(forKey: "tamagotchi")
         })
         
-        let cancel = UIAlertAction(title: "장난이에요ㅎㅎ", style: .cancel, handler: nil)
+        let cancle = UIAlertAction(title: "장난이에요ㅎㅎ", style: .cancel, handler: nil)
+        
+        ok.setValue(UIColor(named: "AlertOkColor"), forKey: "titleTextColor")
+        cancle.setValue(UIColor(named: "AlertCancleColor"), forKey: "titleTextColor")
         
         alert.addAction(ok)
-        alert.addAction(cancel)
+        alert.addAction(cancle)
         
         present(alert, animated: true)
     }
@@ -98,7 +101,7 @@ class SettingTableViewController: UITableViewController {
         cell.settingImage.image = UIImage(systemName: SettingCell.allCases[indexPath.row].cellInfo[0])
         cell.settingTitle.text = SettingCell.allCases[indexPath.row].cellInfo[1]
         cell.user.text = SettingCell.allCases[indexPath.row].cellInfo[2]
-        
+       
         // systemSymbols 색상
         cell.settingImage.tintColor = UIColor(named: "NameColor")
         // 설정창 sub제목들 스타일
