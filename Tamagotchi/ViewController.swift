@@ -26,10 +26,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var riceButton: UIButton!
     @IBOutlet weak var waterButton: UIButton!
     
+    
+    
     let getIndexNumber = UserDefaults.standard.integer(forKey: "index")
     var selectChangeData = SelectChangeInfo()
   
-    static var userName:String = "재용"
+    
     var tamagtchiTalk = Story()
   
     var levelCount = UserDefaults.standard.integer(forKey: "level")
@@ -46,7 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         mainRice.text = "· 밥알 \(Int(riceCount))개"
         mainWater.text = "· 물방울 \(Int(waterCount))개"
         
-        levelUp()
+        
         
         // 배경색 지정
         view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
@@ -65,7 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // navigation 설정
         // \()로 나중에 바꿔주자
-        navigationItem.title = "\(ViewController.userName)님의 다마고치"
+        
         // titleTextAttributes: 글꼴또는 색상 등의 변경을 할 수 있는 기능
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "NameColor") ?? .black]
         navigationController?.navigationBar.tintColor = UIColor(named: "NameColor")
@@ -89,8 +91,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     // 메인화면 입장 시 문구
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+
         storyLabel.text = tamagtchiTalk.storyBasic.randomElement()!
+        nickName = UserDefaults.standard.string(forKey: "nickname") ?? "재용"
+        navigationItem.title = "\(nickName)님의 다마고치"
+        levelUp()
+
     }
     
     // action - setting으로 push

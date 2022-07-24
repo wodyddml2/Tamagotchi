@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6357FD18288D3AE100F1E0AD /* NameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357FD17288D3AE100F1E0AD /* NameChangeViewController.swift */; };
 		63641AAF288A7B1500E995F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AAE288A7B1500E995F1 /* AppDelegate.swift */; };
 		63641AB1288A7B1500E995F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AB0288A7B1500E995F1 /* SceneDelegate.swift */; };
 		63641AB3288A7B1500E995F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AB2288A7B1500E995F1 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6357FD17288D3AE100F1E0AD /* NameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameChangeViewController.swift; sourceTree = "<group>"; };
 		63641AAB288A7B1500E995F1 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63641AAE288A7B1500E995F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63641AB0288A7B1500E995F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				63641ACE288A861200E995F1 /* Setting.storyboard */,
 				63641AD1288A862C00E995F1 /* SettingTableViewController.swift */,
 				63641AD3288A863900E995F1 /* SettingTableViewCell.swift */,
+				6357FD17288D3AE100F1E0AD /* NameChangeViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				63641ADC288AA64000E995F1 /* SelectChangeInfo.swift in Sources */,
 				63641AD4288A863900E995F1 /* SettingTableViewCell.swift in Sources */,
 				63641AB1288A7B1500E995F1 /* SceneDelegate.swift in Sources */,
+				6357FD18288D3AE100F1E0AD /* NameChangeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
