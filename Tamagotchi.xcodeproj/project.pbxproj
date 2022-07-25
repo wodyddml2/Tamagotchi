@@ -28,6 +28,7 @@
 		63641ADF288ABBC800E995F1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */; };
 		63641AE1288ABBDE00E995F1 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */; };
 		63641AE3288ABC6600E995F1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE2288ABC6600E995F1 /* UIView+Extension.swift */; };
+		63C600F6288E5766003DC666 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C600F5288E5766003DC666 /* UserDefaultsKey.swift */; };
 		63D1B47B288BAF4600E19915 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47A288BAF4600E19915 /* Story.swift */; };
 		63D1B47F288BD58100E19915 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47E288BD58100E19915 /* UITextField+Extension.swift */; };
 		63E573A6288AF2E100EB1905 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 63E573A5288AF2E100EB1905 /* Toast */; };
@@ -57,6 +58,7 @@
 		63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		63641AE2288ABC6600E995F1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		63C600F5288E5766003DC666 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		63D1B47A288BAF4600E19915 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		63D1B47E288BD58100E19915 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 				63641AB2288A7B1500E995F1 /* ViewController.swift */,
 				63641AB4288A7B1500E995F1 /* Main.storyboard */,
 				63D1B47A288BAF4600E19915 /* Story.swift */,
+				63C600F5288E5766003DC666 /* UserDefaultsKey.swift */,
 				63641AC4288A856F00E995F1 /* Select */,
 				63641AC7288A858700E995F1 /* PopUp */,
 				63641AD0288A861600E995F1 /* Setting */,
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C600F6288E5766003DC666 /* UserDefaultsKey.swift in Sources */,
 				63D1B47F288BD58100E19915 /* UITextField+Extension.swift in Sources */,
 				63641AD2288A862C00E995F1 /* SettingTableViewController.swift in Sources */,
 				63641AE3288ABC6600E995F1 /* UIView+Extension.swift in Sources */,

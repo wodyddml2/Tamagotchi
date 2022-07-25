@@ -2,6 +2,7 @@
 import UIKit
 import Toast
 
+let userKeys = UserDefaultsKey()
 
 class ViewController: UIViewController {
     static let mainIdentifier = "ViewController"
@@ -32,10 +33,10 @@ class ViewController: UIViewController {
     var selectChangeData = SelectChangeInfo()
   
     // UserDefault 초기화
-    let getIndexNumber = UserDefaults.standard.integer(forKey: "index")
-    var levelCount = UserDefaults.standard.integer(forKey: "level")
-    var riceCount:Double = UserDefaults.standard.double(forKey: "rice")
-    var waterCount: Double  = UserDefaults.standard.double(forKey: "water")
+    let getIndexNumber = UserDefaults.standard.integer(forKey: userKeys.index)
+    var levelCount = UserDefaults.standard.integer(forKey: userKeys.level)
+    var riceCount:Double = UserDefaults.standard.double(forKey: userKeys.rice)
+    var waterCount: Double  = UserDefaults.standard.double(forKey: userKeys.water)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,7 @@ class ViewController: UIViewController {
     // 메인화면 입장 시 문구
     override func viewWillAppear(_ animated: Bool) {
         // 뷰컨 생명주기를 이용하여 이름 변경 적용
-        nickName = UserDefaults.standard.string(forKey: "nickname") ?? "재용"
+        nickName = UserDefaults.standard.string(forKey: userKeys.nickname) ?? "재용"
         // 처음 입장 시 나오는 말풍선
         storyLabel.text = tamagtchiTalk.storyFirst()
         navigationItem.title = "\(nickName)님의 다마고치"
@@ -134,7 +135,7 @@ class ViewController: UIViewController {
             } else {
                 view.makeToast("이 이상은 못먹어요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
-            UserDefaults.standard.set(riceCount, forKey: "rice")
+            UserDefaults.standard.set(riceCount, forKey: userKeys.rice)
             mainRice.text = "· 밥알 \(Int(riceCount))개"
             levelUp(nickName)
         }
@@ -155,7 +156,7 @@ class ViewController: UIViewController {
             } else {
                 view.makeToast("이 이상은 못마셔요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
-            UserDefaults.standard.set(waterCount, forKey: "water")
+            UserDefaults.standard.set(waterCount, forKey: userKeys.water)
             mainWater.text = "· 물방울 \(Int(waterCount))개"
             levelUp(nickName)
         }
@@ -219,7 +220,7 @@ class ViewController: UIViewController {
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv10()
         }
-        UserDefaults.standard.set(levelCount, forKey: "level")
+        UserDefaults.standard.set(levelCount, forKey: userKeys.level)
     }
 }
 
