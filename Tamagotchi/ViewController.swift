@@ -81,6 +81,7 @@ class ViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(nextButton))
 
+      
     }
     
     // 메인화면 입장 시 문구
@@ -96,8 +97,9 @@ class ViewController: UIViewController {
         setKeyboardObserver()
     }
     
-    // 옵저버를 제거해줌으로써 키보드 올린채 화면 넘어갔다 다시 올 때 화면 깨짐 방지
+    // 옵저버 제거
     override func viewWillDisappear(_ animated: Bool) {
+        
         removeKeyboardObserver()
     }
     
@@ -110,7 +112,8 @@ class ViewController: UIViewController {
         }
         
         self.navigationController?.pushViewController(settingVC, animated: true)
-        
+        // 키보드 올린 상태로 넘어갈 시 키보드 내려줌 (다시 넘어와서 키보드 내리면 화면 깨짐때문)
+        view.endEditing(true)
     }
     
     // 바탕 터치 시 편집 중단
