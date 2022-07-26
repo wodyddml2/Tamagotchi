@@ -28,6 +28,7 @@
 		63641ADF288ABBC800E995F1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */; };
 		63641AE1288ABBDE00E995F1 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */; };
 		63641AE3288ABC6600E995F1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE2288ABC6600E995F1 /* UIView+Extension.swift */; };
+		636FBC82288F727B002F7747 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636FBC81288F727B002F7747 /* Note.swift */; };
 		63C600F6288E5766003DC666 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C600F5288E5766003DC666 /* UserDefaultsKey.swift */; };
 		63D1B47B288BAF4600E19915 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47A288BAF4600E19915 /* Story.swift */; };
 		63D1B47F288BD58100E19915 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47E288BD58100E19915 /* UITextField+Extension.swift */; };
@@ -58,6 +59,7 @@
 		63641ADE288ABBC800E995F1 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		63641AE2288ABC6600E995F1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		636FBC81288F727B002F7747 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		63C600F5288E5766003DC666 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		63D1B47A288BAF4600E19915 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		63D1B47E288BD58100E19915 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		63641AAD288A7B1500E995F1 /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
+				636FBC81288F727B002F7747 /* Note.swift */,
 				63641AAE288A7B1500E995F1 /* AppDelegate.swift */,
 				63641AB0288A7B1500E995F1 /* SceneDelegate.swift */,
 				63641AB2288A7B1500E995F1 /* ViewController.swift */,
@@ -244,6 +247,7 @@
 				63641ACD288A85DA00E995F1 /* PopUpViewController.swift in Sources */,
 				63641ADF288ABBC800E995F1 /* UIButton+Extension.swift in Sources */,
 				63641AB3288A7B1500E995F1 /* ViewController.swift in Sources */,
+				636FBC82288F727B002F7747 /* Note.swift in Sources */,
 				63641AAF288A7B1500E995F1 /* AppDelegate.swift in Sources */,
 				63D1B47B288BAF4600E19915 /* Story.swift in Sources */,
 				63641ADA288AA5FE00E995F1 /* SelectChange.swift in Sources */,

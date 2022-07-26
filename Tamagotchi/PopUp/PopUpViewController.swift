@@ -30,7 +30,7 @@ class PopUpViewController: UIViewController {
         // 뒷 배경 투명도
         // 개체를 복사해 복사본만 변경해 원본에 영향을 끼치지않는다.(하나의 개체를 수정해도 subView에 영향이 없다.)
         view.layer.backgroundColor = UIColor.black.cgColor.copy(alpha: 0.5)
-        view.alpha = 1
+//        view.alpha = 1
         
         // select화면에서 데이터 가져오기
         popupImage.image = UIImage(named: "\(selectChangeData?.image ?? "1")-6")

@@ -6,6 +6,8 @@ import Toast
 class SelectCollectionViewController: UICollectionViewController {
     
     static let selectIndentifier = "SelectCollectionViewController"
+    
+    
     static var selectChange = "선택하기"
     
     @IBOutlet weak var selectPageBackground: UIView!

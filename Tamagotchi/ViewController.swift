@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         mainNameBackground.tamagotchiLabelBackground()
         mainName.tamagotchiLabel(15)
         
+       
         // Lv, 밥알, 믈방울, story Label 스타일
         mainLevel.mainLabels()
         mainRice.mainLabels()
@@ -90,7 +91,7 @@ class ViewController: UIViewController {
         // 뷰컨 생명주기를 이용하여 이름 변경 적용
         nickName = UserDefaults.standard.string(forKey: userKeys.nickname) ?? "재용"
         // 처음 입장 시 나오는 말풍선
-        storyLabel.text = tamagtchiTalk.storyFirst()
+        storyLabel.text = tamagtchiTalk.storyBasic
         navigationItem.title = "\(nickName)님의 다마고치"
         // 레벨마다의 말풍선과 등등...
         levelUp(nickName)
@@ -173,52 +174,52 @@ class ViewController: UIViewController {
             levelCount = 1
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv1_2()
+            storyLabel.text = tamagtchiTalk.storyLv1_2
         case 20..<30:
             levelCount = 2
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv1_2()
+            storyLabel.text = tamagtchiTalk.storyLv1_2
         case 30..<40:
             levelCount = 3
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv3_4()
+            storyLabel.text = tamagtchiTalk.storyLv3_4
         case 40..<50:
             levelCount = 4
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv3_4()
+            storyLabel.text = tamagtchiTalk.storyLv3_4
         case 50..<60:
             levelCount = 5
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv5_6()
+            storyLabel.text = tamagtchiTalk.storyLv5_6
         case 60..<70:
             levelCount = 6
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv5_6()
+            storyLabel.text = tamagtchiTalk.storyLv5_6
         case 70..<80:
             levelCount = 7
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv7_8_9()
+            storyLabel.text = tamagtchiTalk.storyLv7_8_9
         case 80..<90:
             levelCount = 8
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv7_8_9()
+            storyLabel.text = tamagtchiTalk.storyLv7_8_9
         case 90..<100:
             levelCount = 9
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv7_8_9()
+            storyLabel.text = tamagtchiTalk.storyLv7_8_9
         default:
             levelCount = 10
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount-1)")
             mainLevel.text = "Lv\(levelCount)"
-            storyLabel.text = tamagtchiTalk.storyLv10()
+            storyLabel.text = tamagtchiTalk.storyLv10
         }
         UserDefaults.standard.set(levelCount, forKey: userKeys.level)
     }

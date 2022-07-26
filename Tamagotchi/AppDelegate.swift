@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  Tamagotchi
-//
-//  Created by J on 2022/07/22.
-//
 
 import UIKit
 
