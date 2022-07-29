@@ -33,6 +33,9 @@ class Story {
         ["이제 그만줘요ㅠㅠ", "배불러 죽겠어요!!" ,"토할 것 같아요...", "\(nick ?? "")님 전 이제 다 컸습니다!"].randomElement()!
     }
     
+    var notificationBody: String {
+        ["\(nick ?? "")님 보고싶어요!", "\(nick ?? "")님 배고파요...", "\(nick ?? "")님 오늘 하루도 화이팅하세요 :)"].randomElement()!
+    }
     
     // viewWillappear에서 보일 문구
     

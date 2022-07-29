@@ -16,6 +16,7 @@ class SelectCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // 헤더 제목
         navigationItem.title = "다마고치 \(SelectCollectionViewController.selectChange)"
         
@@ -60,6 +61,8 @@ class SelectCollectionViewController: UICollectionViewController {
         
         return cell
     }
+    
+    
     
     // 선택 시 PopUp창으로 이동
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

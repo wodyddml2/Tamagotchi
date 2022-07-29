@@ -4,6 +4,8 @@ import Toast
 
 let userKeys = UserDefaultsKey()
 
+
+
 class ViewController: UIViewController {
     static let mainIdentifier = "ViewController"
     
@@ -38,6 +40,9 @@ class ViewController: UIViewController {
     var riceCount:Double = UserDefaults.standard.double(forKey: userKeys.rice)
     var waterCount: Double  = UserDefaults.standard.double(forKey: userKeys.water)
     
+    // notification 알림
+    let notificationCenter = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,12 +53,16 @@ class ViewController: UIViewController {
         mainNameBackground.tamagotchiLabelBackground()
         mainName.tamagotchiLabel(15)
         
-       
-        // Lv, 밥알, 믈방울, story Label 스타일
+        // Custom Font
+        storyLabel.font = UIFont(name: "Galmuri9-Regular", size: 15)
+        storyLabel.textColor = UIColor(named: "NameColor")
+        
+        
+        // Lv, 밥알, 믈방울 스타일
         mainLevel.mainLabels()
         mainRice.mainLabels()
         mainWater.mainLabels()
-        storyLabel.mainLabels()
+      
         
         // 버튼 스타일
         riceButton.eatButton("drop.circle","밥먹기")
@@ -82,9 +91,38 @@ class ViewController: UIViewController {
         navigationItem.backButtonTitle = " "
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(nextButton))
-
-      
+        //
+        notificationAuthorization()
+        
     }
+    
+    // notification 권한 요청
+    func notificationAuthorization() {
+        let authorizationOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+        
+        notificationCenter.requestAuthorization(options: authorizationOptions) { sucess, error in
+            if sucess {
+                self.sendNotification()
+            }
+        }
+    }
+    
+    
+    // 권한 허용한 사용자에게 알림 요청
+    func sendNotification() {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "\(selectChangeData.select[getIndexNumber-1].name)"
+        notificationContent.body = "\(Story(nick: nickName).notificationBody)"
+        notificationContent.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: "j", content: notificationContent, trigger: trigger)
+        
+        notificationCenter.add(request)
+    }
+    
+    
     
     // 메인화면 입장 시 문구
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +135,8 @@ class ViewController: UIViewController {
         levelUp(nickName)
         // 키보드 올릴 시 화면 같이 올려주는 기능
         setKeyboardObserver()
+        
+        self.sendNotification()
     }
     
     // 옵저버 제거

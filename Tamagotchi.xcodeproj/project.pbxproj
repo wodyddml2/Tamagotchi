@@ -29,6 +29,7 @@
 		63641AE1288ABBDE00E995F1 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */; };
 		63641AE3288ABC6600E995F1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63641AE2288ABC6600E995F1 /* UIView+Extension.swift */; };
 		636FBC82288F727B002F7747 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636FBC81288F727B002F7747 /* Note.swift */; };
+		638545EB2893A03F009947E5 /* Galmuri9.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638545EA2893A03F009947E5 /* Galmuri9.ttf */; };
 		63C600F6288E5766003DC666 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C600F5288E5766003DC666 /* UserDefaultsKey.swift */; };
 		63D1B47B288BAF4600E19915 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47A288BAF4600E19915 /* Story.swift */; };
 		63D1B47F288BD58100E19915 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1B47E288BD58100E19915 /* UITextField+Extension.swift */; };
@@ -60,6 +61,7 @@
 		63641AE0288ABBDD00E995F1 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		63641AE2288ABC6600E995F1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		636FBC81288F727B002F7747 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		638545EA2893A03F009947E5 /* Galmuri9.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Galmuri9.ttf; sourceTree = "<group>"; };
 		63C600F5288E5766003DC666 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		63D1B47A288BAF4600E19915 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		63D1B47E288BD58100E19915 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		63641AA2288A7B1500E995F1 = {
 			isa = PBXGroup;
 			children = (
+				638545E92893A02F009947E5 /* Fonts */,
 				63641AAD288A7B1500E995F1 /* Tamagotchi */,
 				63641AAC288A7B1500E995F1 /* Products */,
 			);
@@ -158,6 +161,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		638545E92893A02F009947E5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				638545EA2893A03F009947E5 /* Galmuri9.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -222,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638545EB2893A03F009947E5 /* Galmuri9.ttf in Resources */,
 				63641AC3288A856900E995F1 /* Select.storyboard in Resources */,
 				63641ABB288A7B1700E995F1 /* LaunchScreen.storyboard in Resources */,
 				63641AB8288A7B1700E995F1 /* Assets.xcassets in Resources */,

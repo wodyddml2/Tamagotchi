@@ -1,6 +1,8 @@
 
 import UIKit
 
+
+
 class PopUpViewController: UIViewController {
     
     static let popIdentifier = "PopUpViewController"
@@ -10,6 +12,7 @@ class PopUpViewController: UIViewController {
     
     var selectChangeData: SelectChange?
     
+
     @IBOutlet weak var popupBackground: UIView!
     @IBOutlet weak var popupImage: UIImageView!
     @IBOutlet weak var popupNameBackground: UIView!
@@ -69,8 +72,11 @@ class PopUpViewController: UIViewController {
         okButton.popButton(PopUpViewController.popupChange)
        
         
+        
 
     }
+    
+    
     
     @IBAction func cancleButtonClicked(_ sender: UIButton) {
         dismiss(animated: true)
@@ -86,6 +92,7 @@ class PopUpViewController: UIViewController {
         let Nav = UINavigationController(rootViewController: VC)
         
         Nav.modalPresentationStyle = .fullScreen
+        
         present(Nav, animated: true)
     }
     
