@@ -126,6 +126,7 @@ class ViewController: UIViewController {
     
     // 메인화면 입장 시 문구
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         // 뷰컨 생명주기를 이용하여 이름 변경 적용
         nickName = UserDefaults.standard.string(forKey: userKeys.nickname) ?? "재용"
         // 처음 입장 시 나오는 말풍선
@@ -141,7 +142,8 @@ class ViewController: UIViewController {
     
     // 옵저버 제거
     override func viewWillDisappear(_ animated: Bool) {
-        
+        // 부모 클래스 메서드를 먼저 호출 (생명주기의 제어를 세밀하게 해주기 위함.)
+        super.viewWillDisappear(true)
         removeKeyboardObserver()
     }
     

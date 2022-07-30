@@ -37,6 +37,7 @@ class SettingTableViewController: UITableViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         // 이름 변경 재정의
         nickName = UserDefaults.standard.string(forKey: userKeys.nickname) ?? "재용"
         tableView.reloadData()

@@ -72,8 +72,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPF-wf-cw6">
                                         <rect key="frame" x="41" y="288.5" width="249" height="115.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dsdsfsdfsdfdssdsdasdasdadadadasdasdasdasdasdasdasdsa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plY-qp-kxW">
-                                                <rect key="frame" x="0.0" y="47.5" width="249" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㅓㅓ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plY-qp-kxW">
+                                                <rect key="frame" x="110" y="47.5" width="29.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="0Q7-ca-O0c" secondAttribute="bottom" id="7fE-QJ-8ht"/>
-                                    <constraint firstItem="xPF-wf-cw6" firstAttribute="top" secondItem="n7Z-1g-2K3" secondAttribute="bottom" symbolic="YES" id="Frz-5z-dgF"/>
+                                    <constraint firstItem="xPF-wf-cw6" firstAttribute="top" secondItem="n7Z-1g-2K3" secondAttribute="bottom" constant="8" symbolic="YES" id="Frz-5z-dgF"/>
                                     <constraint firstAttribute="trailing" secondItem="Htt-zA-hLy" secondAttribute="trailing" id="M5i-bH-5x5"/>
                                     <constraint firstItem="vJP-vr-4u6" firstAttribute="top" secondItem="xPF-wf-cw6" secondAttribute="bottom" constant="8" symbolic="YES" id="O3y-wk-nuh"/>
                                     <constraint firstItem="vJP-vr-4u6" firstAttribute="leading" secondItem="p06-E3-u3Y" secondAttribute="leading" id="PcE-Em-jW8"/>
