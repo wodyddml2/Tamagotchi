@@ -28,8 +28,6 @@ class ViewController: UIViewController {
     // 다마고치 말풍선 class 초기화
     var tamagtchiTalk = Story(nick: nickName)
    
-    //  다마고치 이름을 가져오기 위해 struct 초기화
-    var selectChangeData = SelectChangeInfo()
   
     // UserDefault 초기화
     let getIndexNumber = UserDefaults.standard.integer(forKey: UserDefaultsKey.index)
@@ -59,6 +57,7 @@ class ViewController: UIViewController {
         mainLevel.mainLabels()
         mainRice.mainLabels()
         mainWater.mainLabels()
+        storyLabel.numberOfLines = 0
       
         
         // 버튼 스타일
@@ -79,7 +78,7 @@ class ViewController: UIViewController {
         mainWater.text = "· 물방울 \(Int(waterCount))개"
         
         // 다마고치 이름
-        mainName.text = selectChangeData.select[getIndexNumber-1].name
+        mainName.text = SelectChangeInfo.select[getIndexNumber-1].name
         
         // navigation 설정
         // titleTextAttributes: 글꼴또는 색상 등의 변경을 할 수 있는 기능
@@ -108,7 +107,7 @@ class ViewController: UIViewController {
     // 권한 허용한 사용자에게 알림 요청
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "\(selectChangeData.select[getIndexNumber-1].name)"
+        notificationContent.title = "\(SelectChangeInfo.select[getIndexNumber-1].name)"
         notificationContent.body = "\(Story(nick: nickName).notificationBody)"
         notificationContent.badge = 1
         

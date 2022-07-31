@@ -8,17 +8,16 @@ class SelectCollectionViewController: UICollectionViewController {
     static let selectIndentifier = "SelectCollectionViewController"
     
     
-    static var selectChange = "선택하기"
+    static var selectTitle = "선택하기"
     
     @IBOutlet weak var selectPageBackground: UIView!
     
-    let selectChange = SelectChangeInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 헤더 제목
-        navigationItem.title = "다마고치 \(SelectCollectionViewController.selectChange)"
+        navigationItem.title = "다마고치 \(SelectCollectionViewController.selectTitle)"
         
         // 스크롤 바 없애기
         collectionView.showsVerticalScrollIndicator = false
@@ -50,9 +49,9 @@ class SelectCollectionViewController: UICollectionViewController {
         cell.tamagotchiName.tamagotchiLabel(13)
         
         // cell에 적용할 Image와 Label 설정
-        if indexPath.row < selectChange.select.count{
-            cell.tamagotchiImage.image = UIImage(named: "\(selectChange.select[indexPath.row].image)-6")
-            cell.tamagotchiName.text = selectChange.select[indexPath.row].name
+        if indexPath.row < SelectChangeInfo.select.count{
+            cell.tamagotchiImage.image = UIImage(named: "\(SelectChangeInfo.select[indexPath.row].image)-6")
+            cell.tamagotchiName.text = SelectChangeInfo.select[indexPath.row].name
         } else {
             cell.tamagotchiImage.image = UIImage(named: "noImage")
             cell.tamagotchiName.text = "준비중이에요"
@@ -67,13 +66,14 @@ class SelectCollectionViewController: UICollectionViewController {
     // 선택 시 PopUp창으로 이동
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        let popSB = UIStoryboard(name: "PopUp", bundle: nil)
-        guard let popVC = popSB.instantiateViewController(withIdentifier: PopUpViewController.popIdentifier) as? PopUpViewController else {
-            return
-        }
-        popVC.modalPresentationStyle = .overFullScreen
-        if indexPath.row < selectChange.select.count{
-            popVC.selectChangeData = selectChange.select[indexPath.row]
+        if indexPath.row < SelectChangeInfo.select.count{
+            let popSB = UIStoryboard(name: "PopUp", bundle: nil)
+            guard let popVC = popSB.instantiateViewController(withIdentifier: PopUpViewController.popIdentifier) as? PopUpViewController else {
+                return
+            }
+            popVC.modalPresentationStyle = .overFullScreen
+            
+            popVC.selectChangeData = SelectChangeInfo.select[indexPath.row]
 
             UserDefaults.standard.set(indexPath.row+1, forKey: UserDefaultsKey.index)
             present(popVC, animated: true)

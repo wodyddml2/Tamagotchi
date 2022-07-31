@@ -61,7 +61,7 @@ class SettingTableViewController: UITableViewController {
             sceneDelegate?.window?.rootViewController = selectNav
             sceneDelegate?.window?.makeKeyAndVisible()
             // 타입 프로퍼티 변경
-            SelectCollectionViewController.selectChange = "선택하기"
+            SelectCollectionViewController.selectTitle = "선택하기"
             PopUpViewController.popupChange = "시작하기"
             // 저장된 UserDefauts 초기화
             UserDefaults.standard.removeObject(forKey: UserDefaultsKey.level)
@@ -123,7 +123,7 @@ class SettingTableViewController: UITableViewController {
             self.navigationController?.pushViewController(nameVC, animated: true)
             
         case SettingCell.tamagotchiChange.rawValue:
-            SelectCollectionViewController.selectChange = "변경하기"
+            SelectCollectionViewController.selectTitle = "변경하기"
             PopUpViewController.popupChange = "변경하기"
             
             let selectSB = UIStoryboard(name: "Select", bundle: nil)
