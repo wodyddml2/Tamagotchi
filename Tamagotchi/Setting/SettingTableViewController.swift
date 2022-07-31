@@ -81,7 +81,7 @@ class SettingTableViewController: UITableViewController {
         
         present(alert, animated: true)
     }
-    
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingCell.allCases.count
@@ -91,21 +91,14 @@ class SettingTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else {
             return UITableViewCell()
         }
+        // cell 스타일
+        cell.cellStyles()
         
         // 열거형을 이용한 cell setting
         cell.settingImage.image = UIImage(systemName: SettingCell.allCases[indexPath.row].cellInfo[0])
         cell.settingTitle.text = SettingCell.allCases[indexPath.row].cellInfo[1]
         cell.user.text = SettingCell.allCases[indexPath.row].cellInfo[2]
         
-        // systemSymbols 색상
-        cell.settingImage.tintColor = UIColor(named: "NameColor")
-        // 설정창 sub제목들 스타일
-        cell.settingTitle.textColor = .black
-        cell.settingTitle.font = .boldSystemFont(ofSize: 15)
-        // 이름 변경 cell 이름 스타일
-        cell.user.textColor = UIColor(named: "LineColor")
-        cell.user.font = .boldSystemFont(ofSize: 13)
-
         return cell
     }
    
