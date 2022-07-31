@@ -82,7 +82,7 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func okButtonClicked(_ sender: UIButton) {
-        UserDefaults.standard.set(true, forKey: userKeys.tamagotchi)
+        UserDefaults.standard.set(true, forKey: UserDefaultsKey.tamagotchi)
         let SB = UIStoryboard(name: "Main", bundle: nil)
         guard let VC = SB.instantiateViewController(withIdentifier: ViewController.mainIdentifier) as? ViewController else {
             return

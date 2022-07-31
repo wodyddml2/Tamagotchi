@@ -8,10 +8,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
         
-        if UserDefaults.standard.bool(forKey: userKeys.tamagotchi) {
-            guard let scene = (scene as? UIWindowScene) else { return }
-            window = UIWindow(windowScene: scene)
+        if UserDefaults.standard.bool(forKey: UserDefaultsKey.tamagotchi) {
             
             let mainSB = UIStoryboard(name: "Main", bundle: nil)
             
@@ -22,15 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = mainNav
             
         } else {
-            guard let scene = (scene as? UIWindowScene) else { return }
-            window = UIWindow(windowScene: scene)
             
             let selectSB = UIStoryboard(name: "Select", bundle: nil)
-            
-            
-            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else {
-                return
-            }
+        
+            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else { return }
             
             let selectNav = UINavigationController(rootViewController: selectVC)
             

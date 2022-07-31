@@ -1,11 +1,10 @@
-
 import Foundation
 
-struct UserDefaultsKey {
-    let rice = "rice"
-    let water = "water"
-    let nickname = "nickname"
-    let level = "level"
-    let tamagotchi = "tamagotchi"
-    let index = "index"
+enum UserDefaultsKey {
+    static let rice = "rice"
+    static let water = "water"
+    static let nickname = "nickname"
+    static let level = "level"
+    static let tamagotchi = "tamagotchi"
+    static let index = "index"
 }

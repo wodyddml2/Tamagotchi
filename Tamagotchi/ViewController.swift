@@ -1,8 +1,5 @@
-
 import UIKit
 import Toast
-
-let userKeys = UserDefaultsKey()
 
 
 
@@ -35,10 +32,10 @@ class ViewController: UIViewController {
     var selectChangeData = SelectChangeInfo()
   
     // UserDefault 초기화
-    let getIndexNumber = UserDefaults.standard.integer(forKey: userKeys.index)
-    var levelCount = UserDefaults.standard.integer(forKey: userKeys.level)
-    var riceCount: Double = UserDefaults.standard.double(forKey: userKeys.rice)
-    var waterCount: Double  = UserDefaults.standard.double(forKey: userKeys.water)
+    let getIndexNumber = UserDefaults.standard.integer(forKey: UserDefaultsKey.index)
+    var levelCount = UserDefaults.standard.integer(forKey: UserDefaultsKey.level)
+    var riceCount: Double = UserDefaults.standard.double(forKey: UserDefaultsKey.rice)
+    var waterCount: Double  = UserDefaults.standard.double(forKey: UserDefaultsKey.water)
     
     // notification 알림
     let notificationCenter = UNUserNotificationCenter.current()
@@ -128,7 +125,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // 뷰컨 생명주기를 이용하여 이름 변경 적용
-        nickName = UserDefaults.standard.string(forKey: userKeys.nickname) ?? "재용"
+        nickName = UserDefaults.standard.string(forKey: UserDefaultsKey.nickname) ?? "재용"
         // 처음 입장 시 나오는 말풍선
         storyLabel.text = tamagtchiTalk.storyBasic
         navigationItem.title = "\(nickName)님의 다마고치"
@@ -151,9 +148,8 @@ class ViewController: UIViewController {
     // action - setting으로 push
     @objc func nextButton() {
         let settingSB = UIStoryboard(name: "Setting", bundle: nil)
-        guard let settingVC = settingSB.instantiateViewController(withIdentifier: SettingTableViewController.settingIdentifier) as? SettingTableViewController else {
-            return
-        }
+        
+        guard let settingVC = settingSB.instantiateViewController(withIdentifier: SettingTableViewController.settingIdentifier) as? SettingTableViewController else { return }
         
         self.navigationController?.pushViewController(settingVC, animated: true)
         // 키보드 올린 상태로 넘어갈 시 키보드 내려줌 (다시 넘어와서 키보드 내리면 화면 깨짐때문)
@@ -167,6 +163,7 @@ class ViewController: UIViewController {
     
     // 밥알 버튼
     @IBAction func riceButtonClicked(_ sender: UIButton) {
+        
         if Double(riceTextField.text ?? "") == nil && !(riceTextField.text?.isEmpty ?? true) {
             view.makeToast("숫자를 입력해주세요ㅠㅠ", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
         } else {
@@ -178,7 +175,7 @@ class ViewController: UIViewController {
             } else {
                 view.makeToast("이 이상은 못먹어요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
-            UserDefaults.standard.set(riceCount, forKey: userKeys.rice)
+            UserDefaults.standard.set(riceCount, forKey: UserDefaultsKey.rice)
             mainRice.text = "· 밥알 \(Int(riceCount))개"
             levelUp(nickName)
         }
@@ -199,7 +196,7 @@ class ViewController: UIViewController {
             } else {
                 view.makeToast("이 이상은 못마셔요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
-            UserDefaults.standard.set(waterCount, forKey: userKeys.water)
+            UserDefaults.standard.set(waterCount, forKey: UserDefaultsKey.water)
             mainWater.text = "· 물방울 \(Int(waterCount))개"
             levelUp(nickName)
         }
@@ -263,7 +260,7 @@ class ViewController: UIViewController {
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv10
         }
-        UserDefaults.standard.set(levelCount, forKey: userKeys.level)
+        UserDefaults.standard.set(levelCount, forKey: UserDefaultsKey.level)
     }
 }
 
