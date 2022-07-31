@@ -45,19 +45,19 @@ class SettingTableViewController: UITableViewController {
     
    // 데이터 초기화 경고창
     func resetAlert() {
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
-        let selectSB = UIStoryboard(name: "Select", bundle: nil)
-        guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else {
-            return
-        }
-        
-        let selectNav = UINavigationController(rootViewController: selectVC)
         
         let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 키우실 건가요?!", preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "네^^", style: .default, handler:  { action in
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let selectSB = UIStoryboard(name: "Select", bundle: nil)
+            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else { return }
+            
+            let selectNav = UINavigationController(rootViewController: selectVC)
+            
             sceneDelegate?.window?.rootViewController = selectNav
             sceneDelegate?.window?.makeKeyAndVisible()
             // 타입 프로퍼티 변경
@@ -109,28 +109,26 @@ class SettingTableViewController: UITableViewController {
     // cell 선택 시
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // cell 클릭 시 회색 하이라이트 없애기
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
         
-        let nameSB = UIStoryboard(name: "Setting", bundle: nil)
-        guard let nameVC = nameSB.instantiateViewController(withIdentifier: "NameChangeViewController") as? NameChangeViewController else {
-            return
-        }
-        
-     
-        let selectSB = UIStoryboard(name: "Select", bundle: nil)
-        guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else {
-            return
-        }
-        
+        // 위의 방식으로 효과를 없애기보다 셀을 갱신하여 클릭 효과 방식
+        tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .fade)
         
         switch indexPath.row {
             
         case SettingCell.nameSet.rawValue:
+            let nameSB = UIStoryboard(name: "Setting", bundle: nil)
+            guard let nameVC = nameSB.instantiateViewController(withIdentifier: "NameChangeViewController") as? NameChangeViewController else { return }
+            
             self.navigationController?.pushViewController(nameVC, animated: true)
             
         case SettingCell.tamagotchiChange.rawValue:
             SelectCollectionViewController.selectChange = "변경하기"
             PopUpViewController.popupChange = "변경하기"
+            
+            let selectSB = UIStoryboard(name: "Select", bundle: nil)
+            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else { return }
+            
             self.navigationController?.pushViewController(selectVC, animated: true)
             
         case SettingCell.dataReset.rawValue:
