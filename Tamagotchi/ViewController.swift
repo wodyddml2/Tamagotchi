@@ -207,50 +207,50 @@ class ViewController: UIViewController {
     // Lv과 Lv에 따른 이미지, Lv마다 이야기 Label을 경험치 양마다 설정
     func levelUp(_ nick: String) {
         let tamagtchiTalk = Story(nick: nick)
-        let levelPoint = (riceCount/5) + (waterCount/2)
+        let levelPoint = Int((riceCount/5) + (waterCount/2)) / 10
         switch levelPoint {
-        case 0..<20:
+        case 0...1:
             levelCount = 1
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv1_2
-        case 20..<30:
-            levelCount = 2
+        case 2:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv1_2
-        case 30..<40:
-            levelCount = 3
+        case 3:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv3_4
-        case 40..<50:
-            levelCount = 4
+        case 4:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv3_4
-        case 50..<60:
-            levelCount = 5
+        case 5:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv5_6
-        case 60..<70:
-            levelCount = 6
+        case 6:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv5_6
-        case 70..<80:
-            levelCount = 7
+        case 7:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv7_8_9
-        case 80..<90:
-            levelCount = 8
+        case 8:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv7_8_9
-        case 90..<100:
-            levelCount = 9
+        case 9:
+            levelCount = levelPoint
             mainImage.image = UIImage(named: "\(getIndexNumber)-\(levelCount)")
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv7_8_9
