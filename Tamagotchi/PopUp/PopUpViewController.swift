@@ -44,7 +44,8 @@ class PopUpViewController: UIViewController {
         popupBackground.backgroundColor = .tamagotchiBackgroundColor
         
         // popup 배경 둥글게
-        popupBackground.layer.masksToBounds = true
+        // masksToBounds를 true 설정하지 않아도 되는 이유는 레이어를 벗어날 객체가 없기 때문에 굳이 설정해주지 않아도 되는 듯
+//        popupBackground.layer.masksToBounds = true
         popupBackground.layer.cornerRadius = 5
         
         // 이름 스타일

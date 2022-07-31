@@ -170,7 +170,7 @@ class ViewController: UIViewController {
             
             if riceTextField.text?.isEmpty ?? true {
                 riceCount += 1
-            } else if (Double(riceTextField.text ?? "") ?? 0) < 100{
+            } else if (Double(riceTextField.text ?? "") ?? 0) < 100 && (Double(waterTextField.text ?? "") ?? 0) > 0{
                 riceCount += Double(riceTextField.text ?? "") ?? 0
             } else {
                 view.makeToast("이 이상은 못먹어요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
@@ -191,7 +191,7 @@ class ViewController: UIViewController {
         } else {
             if waterTextField.text?.isEmpty ?? true {
                 waterCount += 1
-            } else if (Double(waterTextField.text ?? "") ?? 0) < 50{
+            } else if (Double(waterTextField.text ?? "") ?? 0) < 50 && (Double(waterTextField.text ?? "") ?? 0) > 0{
                 waterCount += Double(waterTextField.text ?? "") ?? 0
             } else {
                 view.makeToast("이 이상은 못마셔요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
