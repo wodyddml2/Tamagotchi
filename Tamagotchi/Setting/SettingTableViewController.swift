@@ -28,7 +28,7 @@ class SettingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 배경 색상 지정
-        view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        view.backgroundColor = .tamagotchiBackgroundColor
         
         // navigation 스타일
         navigationItem.title = "설정"
@@ -91,12 +91,6 @@ class SettingTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else {
             return UITableViewCell()
         }
-        // cell의 배경 색상
-        cell.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        // 오른쪽 꺽쇠 악세사리 지정
-        cell.accessoryType = .disclosureIndicator
-        // 왼쪽 구분선 채움
-        cell.separatorInset.left = 0
         
         // 열거형을 이용한 cell setting
         cell.settingImage.image = UIImage(systemName: SettingCell.allCases[indexPath.row].cellInfo[0])

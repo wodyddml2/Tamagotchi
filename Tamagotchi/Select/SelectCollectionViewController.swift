@@ -24,7 +24,7 @@ class SelectCollectionViewController: UICollectionViewController {
         collectionView.showsVerticalScrollIndicator = false
         
         // 배경 색
-        selectPageBackground.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        selectPageBackground.backgroundColor = .tamagotchiBackgroundColor
         
         // cell 레이아웃
         let layout = UICollectionViewFlowLayout()

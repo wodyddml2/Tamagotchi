@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     // UserDefault 초기화
     let getIndexNumber = UserDefaults.standard.integer(forKey: userKeys.index)
     var levelCount = UserDefaults.standard.integer(forKey: userKeys.level)
-    var riceCount:Double = UserDefaults.standard.double(forKey: userKeys.rice)
+    var riceCount: Double = UserDefaults.standard.double(forKey: userKeys.rice)
     var waterCount: Double  = UserDefaults.standard.double(forKey: userKeys.water)
     
     // notification 알림
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // 배경색 지정
-        view.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        view.backgroundColor = .tamagotchiBackgroundColor
 
         // 다마고치 이름 Label 스타일
         mainNameBackground.tamagotchiLabelBackground()

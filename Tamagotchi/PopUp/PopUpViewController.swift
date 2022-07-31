@@ -42,7 +42,7 @@ class PopUpViewController: UIViewController {
         
       
         // popup 배경 색 지정
-        popupBackground.backgroundColor = UIColor(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
+        popupBackground.backgroundColor = .tamagotchiBackgroundColor
         
         // popup 배경 둥글게
         popupBackground.layer.masksToBounds = true

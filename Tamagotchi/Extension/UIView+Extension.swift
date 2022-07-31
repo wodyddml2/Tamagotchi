@@ -10,4 +10,6 @@ extension UIView {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(named: "LineColor")?.cgColor
     }
+    
 }
+
