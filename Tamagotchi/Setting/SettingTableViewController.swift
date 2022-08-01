@@ -37,7 +37,7 @@ class SettingTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // 이름 변경 재정의
-        nickName = UserDefaults.standard.string(forKey: UserDefaultsKey.nickname) ?? "재용"
+        nickName = UserDefaultsKey.standard.nickname
         tableView.reloadData()
     }
     
@@ -61,12 +61,14 @@ class SettingTableViewController: UITableViewController {
             // 타입 프로퍼티 변경
             SelectCollectionViewController.selectTitle = "선택하기"
             PopUpViewController.popupChange = "시작하기"
+            
             // 저장된 UserDefauts 초기화
-            UserDefaults.standard.removeObject(forKey: UserDefaultsKey.level)
-            UserDefaults.standard.removeObject(forKey: UserDefaultsKey.nickname)
-            UserDefaults.standard.removeObject(forKey: UserDefaultsKey.rice)
-            UserDefaults.standard.removeObject(forKey: UserDefaultsKey.water)
-            UserDefaults.standard.removeObject(forKey: UserDefaultsKey.tamagotchi)
+
+            // .bundleIdentifier: bundle의 전체 식별자 - key를 다 가져옴
+            // .removePersistentDomain(forName: ): 영구 도메인을 제거 - 저장된 key를 제거
+            if let bundleID = Bundle.main.bundleIdentifier {
+                UserDefaults.standard.removePersistentDomain(forName: bundleID)
+            }
         })
         
         let cancle = UIAlertAction(title: "장난이에요ㅎㅎ", style: .cancel, handler: nil)

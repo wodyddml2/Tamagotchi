@@ -28,10 +28,11 @@ class ViewController: UIViewController {
    
   
     // UserDefault 초기화
-    let getIndexNumber = UserDefaults.standard.integer(forKey: UserDefaultsKey.index)
-    var levelCount = UserDefaults.standard.integer(forKey: UserDefaultsKey.level)
-    var riceCount: Double = UserDefaults.standard.double(forKey: UserDefaultsKey.rice)
-    var waterCount: Double  = UserDefaults.standard.double(forKey: UserDefaultsKey.water)
+    let getIndexNumber = UserDefaultsKey.standard.index
+    var levelCount = UserDefaultsKey.standard.level
+    var riceCount = UserDefaultsKey.standard.rice
+    var waterCount = UserDefaultsKey.standard.water
+    
     
     // notification 알림
     let notificationCenter = UNUserNotificationCenter.current()
@@ -122,7 +123,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // 뷰컨 생명주기를 이용하여 이름 변경 적용
-        nickName = UserDefaults.standard.string(forKey: UserDefaultsKey.nickname) ?? "재용"
+        nickName = UserDefaultsKey.standard.nickname
         // 처음 입장 시 나오는 말풍선
         storyLabel.text = tamagtchiTalk.storyBasic
         navigationItem.title = "\(nickName)님의 다마고치"
@@ -172,7 +173,7 @@ class ViewController: UIViewController {
             } else {
                 view.makeToast("이 이상은 못먹어요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
-            UserDefaults.standard.set(riceCount, forKey: UserDefaultsKey.rice)
+            UserDefaultsKey.standard.rice = riceCount
             mainRice.text = "· 밥알 \(Int(riceCount))개"
             levelUp(nickName)
         }
@@ -193,7 +194,7 @@ class ViewController: UIViewController {
             } else {
                 view.makeToast("이 이상은 못마셔요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
             }
-            UserDefaults.standard.set(waterCount, forKey: UserDefaultsKey.water)
+            UserDefaultsKey.standard.water = waterCount
             mainWater.text = "· 물방울 \(Int(waterCount))개"
             levelUp(nickName)
         }
@@ -257,7 +258,7 @@ class ViewController: UIViewController {
             mainLevel.text = "Lv\(levelCount)"
             storyLabel.text = tamagtchiTalk.storyLv10
         }
-        UserDefaults.standard.set(levelCount, forKey: UserDefaultsKey.level)
+        UserDefaultsKey.standard.level = levelCount
     }
 }
 

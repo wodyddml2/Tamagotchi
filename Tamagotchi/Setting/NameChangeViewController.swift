@@ -1,8 +1,6 @@
-
-
 import UIKit
 
-var nickName: String = UserDefaults.standard.string(forKey: UserDefaultsKey.nickname) ?? "재용"
+var nickName = UserDefaultsKey.standard.nickname
 
 class NameChangeViewController: UIViewController {
 
@@ -33,7 +31,7 @@ class NameChangeViewController: UIViewController {
     }
     // 저장 action
     @objc func saveAction() {
-        UserDefaults.standard.set(nameTextField.text, forKey: UserDefaultsKey.nickname)
+        UserDefaultsKey.standard.nickname = nameTextField.text ?? UserDefaultsKey.standard.optionalDefaults
         
         navigationController?.popViewController(animated: true)
     }

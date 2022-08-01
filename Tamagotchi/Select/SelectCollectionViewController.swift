@@ -72,7 +72,7 @@ class SelectCollectionViewController: UICollectionViewController {
             
             popVC.selectChangeData = SelectChangeInfo.select[indexPath.row]
 
-            UserDefaults.standard.set(indexPath.row+1, forKey: UserDefaultsKey.index)
+            UserDefaultsKey.standard.index = indexPath.row + 1
             present(popVC, animated: true)
         } else {
             // Toast 라이브러리를 이용한 나머지 cell들의 팝업창

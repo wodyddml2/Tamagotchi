@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        if UserDefaults.standard.bool(forKey: UserDefaultsKey.tamagotchi) {
+        if UserDefaultsKey.standard.tamagotchi {
             
             let mainSB = UIStoryboard(name: "Main", bundle: nil)
             
