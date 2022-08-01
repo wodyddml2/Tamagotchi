@@ -22,8 +22,6 @@ enum SettingCell: Int ,CaseIterable {
 }
 
 class SettingTableViewController: UITableViewController {
-
-    static let settingIdentifier = "SettingTableViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +52,7 @@ class SettingTableViewController: UITableViewController {
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
             
             let selectSB = UIStoryboard(name: "Select", bundle: nil)
-            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else { return }
+            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.reusableIdentifier) as? SelectCollectionViewController else { return }
             
             let selectNav = UINavigationController(rootViewController: selectVC)
             
@@ -88,7 +86,7 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as? SettingTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reusableIdentifier, for: indexPath) as? SettingTableViewCell else {
             return UITableViewCell()
         }
         // cell 스타일
@@ -118,7 +116,7 @@ class SettingTableViewController: UITableViewController {
             
         case SettingCell.nameSet.rawValue:
             let nameSB = UIStoryboard(name: "Setting", bundle: nil)
-            guard let nameVC = nameSB.instantiateViewController(withIdentifier: "NameChangeViewController") as? NameChangeViewController else { return }
+            guard let nameVC = nameSB.instantiateViewController(withIdentifier: NameChangeViewController.reusableIdentifier) as? NameChangeViewController else { return }
             
             self.navigationController?.pushViewController(nameVC, animated: true)
             
@@ -127,13 +125,14 @@ class SettingTableViewController: UITableViewController {
             PopUpViewController.popupChange = "변경하기"
             
             let selectSB = UIStoryboard(name: "Select", bundle: nil)
-            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else { return }
+            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.reusableIdentifier) as? SelectCollectionViewController else { return }
             
             self.navigationController?.pushViewController(selectVC, animated: true)
             
         case SettingCell.dataReset.rawValue:
             resetAlert()
             
+            // default 없이 할 수 있는 방법 찾자
         default:
             return
         }

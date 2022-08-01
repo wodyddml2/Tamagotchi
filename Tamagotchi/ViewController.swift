@@ -4,8 +4,6 @@ import Toast
 
 
 class ViewController: UIViewController {
-    static let mainIdentifier = "ViewController"
-    
     @IBOutlet weak var storyLabel: UILabel!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var mainNameBackground: UIView!
@@ -148,7 +146,7 @@ class ViewController: UIViewController {
     @objc func nextButton() {
         let settingSB = UIStoryboard(name: "Setting", bundle: nil)
         
-        guard let settingVC = settingSB.instantiateViewController(withIdentifier: SettingTableViewController.settingIdentifier) as? SettingTableViewController else { return }
+        guard let settingVC = settingSB.instantiateViewController(withIdentifier: SettingTableViewController.reusableIdentifier) as? SettingTableViewController else { return }
         
         self.navigationController?.pushViewController(settingVC, animated: true)
         // 키보드 올린 상태로 넘어갈 시 키보드 내려줌 (다시 넘어와서 키보드 내리면 화면 깨짐때문)

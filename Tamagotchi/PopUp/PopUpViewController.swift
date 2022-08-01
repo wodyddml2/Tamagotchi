@@ -5,7 +5,6 @@ import UIKit
 
 class PopUpViewController: UIViewController {
     
-    static let popIdentifier = "PopUpViewController"
     
     // 변경하기를 위한 변수
     static var popupChange = "시작하기"
@@ -85,7 +84,7 @@ class PopUpViewController: UIViewController {
     @IBAction func okButtonClicked(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: UserDefaultsKey.tamagotchi)
         let SB = UIStoryboard(name: "Main", bundle: nil)
-        guard let VC = SB.instantiateViewController(withIdentifier: ViewController.mainIdentifier) as? ViewController else {
+        guard let VC = SB.instantiateViewController(withIdentifier: ViewController.reusableIdentifier) as? ViewController else {
             return
         }
         

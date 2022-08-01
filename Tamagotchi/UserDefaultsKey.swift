@@ -8,3 +8,4 @@ enum UserDefaultsKey {
     static let tamagotchi = "tamagotchi"
     static let index = "index"
 }
+

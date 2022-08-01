@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let mainSB = UIStoryboard(name: "Main", bundle: nil)
             
-            guard let mainVC = mainSB.instantiateViewController(withIdentifier: ViewController.mainIdentifier) as? ViewController else { return }
+            guard let mainVC = mainSB.instantiateViewController(withIdentifier: ViewController.reusableIdentifier) as? ViewController else { return }
             
             let mainNav = UINavigationController(rootViewController: mainVC)
             
@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let selectSB = UIStoryboard(name: "Select", bundle: nil)
         
-            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.selectIndentifier) as? SelectCollectionViewController else { return }
+            guard let selectVC = selectSB.instantiateViewController(withIdentifier: SelectCollectionViewController.reusableIdentifier) as? SelectCollectionViewController else { return }
             
             let selectNav = UINavigationController(rootViewController: selectVC)
             

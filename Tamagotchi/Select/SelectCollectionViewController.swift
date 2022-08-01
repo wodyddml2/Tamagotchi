@@ -5,9 +5,6 @@ import Toast
 
 class SelectCollectionViewController: UICollectionViewController {
     
-    static let selectIndentifier = "SelectCollectionViewController"
-    
-    
     static var selectTitle = "선택하기"
     
     @IBOutlet weak var selectPageBackground: UIView!
@@ -40,7 +37,7 @@ class SelectCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectCollectionViewCell", for: indexPath) as? SelectCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectCollectionViewCell.reusableIdentifier, for: indexPath) as? SelectCollectionViewCell else {
             return UICollectionViewCell()
         }
 
@@ -68,7 +65,7 @@ class SelectCollectionViewController: UICollectionViewController {
 
         if indexPath.row < SelectChangeInfo.select.count{
             let popSB = UIStoryboard(name: "PopUp", bundle: nil)
-            guard let popVC = popSB.instantiateViewController(withIdentifier: PopUpViewController.popIdentifier) as? PopUpViewController else {
+            guard let popVC = popSB.instantiateViewController(withIdentifier: PopUpViewController.reusableIdentifier) as? PopUpViewController else {
                 return
             }
             popVC.modalPresentationStyle = .overFullScreen
