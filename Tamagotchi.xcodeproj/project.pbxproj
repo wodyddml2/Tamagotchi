@@ -94,6 +94,7 @@
 		63641AA2288A7B1500E995F1 = {
 			isa = PBXGroup;
 			children = (
+				636FBC81288F727B002F7747 /* Note.swift */,
 				638545E92893A02F009947E5 /* Fonts */,
 				63641AAD288A7B1500E995F1 /* Tamagotchi */,
 				63641AAC288A7B1500E995F1 /* Products */,
@@ -111,7 +112,6 @@
 		63641AAD288A7B1500E995F1 /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
-				636FBC81288F727B002F7747 /* Note.swift */,
 				63641AAE288A7B1500E995F1 /* AppDelegate.swift */,
 				63641AB0288A7B1500E995F1 /* SceneDelegate.swift */,
 				63641AB2288A7B1500E995F1 /* ViewController.swift */,

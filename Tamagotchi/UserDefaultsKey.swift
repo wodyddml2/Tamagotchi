@@ -20,7 +20,7 @@ class UserDefaultsKey {
     
     let userDefaults = UserDefaults.standard
     let optionalDefaults = "재용"
-    
+ 
     var rice: Double {
         get {
             userDefaults.double(forKey: Key.rice.rawValue)

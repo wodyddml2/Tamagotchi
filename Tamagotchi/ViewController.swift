@@ -159,16 +159,43 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    // 밥알 버튼
-    @IBAction func riceButtonClicked(_ sender: UIButton) {
-        
-        if Double(riceTextField.text ?? "") == nil && !(riceTextField.text?.isEmpty ?? true) {
+    /*
+     inout: 함수의 파라미터는 상수이다. 그렇기 때문에 함수 내부에서 파라미터를 변경할 수 없기에 inout키워드가 필요하다.
+     inout 파라미터는 변수만을 취급
+     타입 옆에 inout 명시, 함수 인자 전달 시 &키워드 명시
+     원리 : 함수 호출 시 매개변수 복사 -> 함수 내부에서 복사한 값을 수정 -> 반환 시 변환된 값을 원본에 재할당
+     */
+    func eatCalculation(_ textField: UITextField, _ count: inout Double, _ label: UILabel) {
+        if Double(textField.text ?? "") == nil && !(textField.text?.isEmpty ?? true) {
             view.makeToast("숫자를 입력해주세요ㅠㅠ", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
         } else {
             
+            if textField.text?.isEmpty ?? true {
+                count += 1
+            } else if (Double(textField.text ?? "") ?? 0) < 100 && (Double(textField.text ?? "") ?? 0) > 0{
+                count += Double(textField.text ?? "") ?? 0
+            } else {
+                view.makeToast("이 이상은 못먹어요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
+            }
+            label.text = "· 밥알 \(Int(count))개"
+            levelUp(nickName)
+        }
+        textField.text = ""
+        view.endEditing(true)
+    }
+    
+    
+    // 밥알 버튼
+    @IBAction func riceButtonClicked(_ sender: UIButton) {
+        
+//        eatCalculation(riceTextField, &UserDefaultsKey.standard.rice, mainRice)
+        if Double(riceTextField.text ?? "") == nil && !(riceTextField.text?.isEmpty ?? true) {
+            view.makeToast("숫자를 입력해주세요ㅠㅠ", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
+        } else {
+
             if riceTextField.text?.isEmpty ?? true {
                 riceCount += 1
-            } else if (Double(riceTextField.text ?? "") ?? 0) < 100 && (Double(waterTextField.text ?? "") ?? 0) > 0{
+            } else if (Double(riceTextField.text ?? "") ?? 0) < 100 && (Double(riceTextField.text ?? "") ?? 0) > 0{
                 riceCount += Double(riceTextField.text ?? "") ?? 0
             } else {
                 view.makeToast("이 이상은 못먹어요!!", duration: 0.5, position: .center, title: nil, image: nil, style: ToastStyle(), completion: nil)
@@ -197,6 +224,7 @@ class ViewController: UIViewController {
             UserDefaultsKey.standard.water = waterCount
             mainWater.text = "· 물방울 \(Int(waterCount))개"
             levelUp(nickName)
+
         }
         waterTextField.text = ""
         view.endEditing(true)
@@ -205,7 +233,7 @@ class ViewController: UIViewController {
     // Lv과 Lv에 따른 이미지, Lv마다 이야기 Label을 경험치 양마다 설정
     func levelUp(_ nick: String) {
         let tamagtchiTalk = Story(nick: nick)
-        let levelPoint = Int((riceCount/5) + (waterCount/2)) / 10
+        let levelPoint = Int((UserDefaultsKey.standard.rice/5) + (waterCount/2)) / 10
         switch levelPoint {
         case 0...1:
             levelCount = 1
